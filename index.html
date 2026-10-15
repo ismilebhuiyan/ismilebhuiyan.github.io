@@ -1,126 +1,106 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071a1d">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101626">
 <meta name="description" content="Md. Ismile Hossain Bhuiyan — veterinarian, animal scientist and One Health researcher in Dhaka, Bangladesh.">
 <title>Md. Ismile Hossain Bhuiyan — Veterinary Researcher</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f7f5;--card:#fff;--ink:#10272a;--mute:#566b6d;--line:#d8e2de;--teal:#0c7c78;--tint:#dff3ef;--red:#d23a2f;--sh:0 20px 50px -24px rgba(8,40,44,.35)}
-:root[data-theme=dark]{--bg:#08171a;--card:#0e2227;--ink:#e8f1ee;--mute:#9db5b6;--line:#21393d;--teal:#4fd1c5;--tint:#12363a;--sh:0 20px 50px -24px #000}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 'Instrument Sans',system-ui,sans-serif;transition:background .4s,color .4s}
-h1,h2,h3,.logo{font-family:'Bricolage Grotesque',sans-serif;margin:0;letter-spacing:-.03em}
-a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font:inherit;cursor:pointer;color:inherit}
+:root{--bg:#eef0f3;--card:#fff;--ink:#141922;--mute:#586272;--line:#dde1e7;--teal:#b3202a;--red:#b3202a;--navy:#101626;--tint:#f8e7e8;--or:#e08a2d;--gr:#5aa469;--bl:#2f6fb5;--sh:0 18px 40px -26px rgba(16,22,38,.4)}
+:root[data-theme=dark]{--bg:#0c0f15;--card:#141a24;--ink:#e8ebf1;--mute:#98a2b3;--line:#262e3c;--teal:#ff7a82;--tint:#2c1a1e;--sh:0 18px 40px -26px #000}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.7 'Source Serif 4',Georgia,serif;transition:background .4s,color .4s}
+h1,h2,h3,.tag,.f,.btn,nav,.st,.big,.sub,.lg,.pt,.chips,summary{font-family:'Manrope',system-ui,sans-serif}
+h1,h2,h3{margin:0;letter-spacing:-.02em}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font:inherit;cursor:pointer;color:inherit}
 :focus-visible{outline:2px solid var(--teal);outline-offset:3px}
-.wrap{max-width:1160px;margin:auto;padding:0 24px}
-#prog{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--teal),var(--red));transform:scaleX(0);transform-origin:0;z-index:60}
-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,#071a1d 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid #ffffff14}
-.ni{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-.logo{font-weight:800;font-size:20px;color:#fff}.logo i{color:var(--red);font-style:normal}
-.links{display:flex;gap:4px}.links a{color:#cfe3e2;font-size:13px;font-weight:500;padding:6px 11px;border-radius:20px;transition:.25s}
-.links a:hover{color:#fff}.links a.on{background:#ffffff1c;color:#fff}
-.nb{width:38px;height:38px;border-radius:50%;border:1px solid #ffffff30;background:none;color:#fff}
-#menu{display:none}
-/* hero */
-.hero{position:relative;background:radial-gradient(70% 90% at 80% 30%,#0f4a4d 0,#071a1d 70%);color:#fff;overflow:hidden}
+#prog{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--bl),var(--gr),var(--or),var(--red));transform:scaleX(0);transform-origin:0;z-index:90}
+.app{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
+.side{position:sticky;top:0;height:100vh;overflow:auto;background:var(--navy);color:#fff;padding:30px 22px 22px;display:flex;flex-direction:column;gap:22px;z-index:50}
+.av{width:132px;height:132px;border-radius:50%;padding:4px;background:conic-gradient(var(--bl),var(--gr),var(--or),var(--red),var(--bl));animation:sp 8s linear infinite;margin-bottom:16px}
+.av img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 18%;border:4px solid var(--navy);animation:sp 8s linear infinite reverse}
+@keyframes sp{to{transform:rotate(1turn)}}
+.side h1{font-size:23px;line-height:1.15;font-weight:800}.rl{font-size:14px;color:#aab4c8;margin:10px 0 0;line-height:1.5;font-family:'Manrope',system-ui,sans-serif}.rl b{color:#fff}
+.caret{display:inline-block;width:2px;height:1em;background:var(--red);margin-left:3px;vertical-align:-2px;animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.links{display:flex;flex-direction:column;gap:2px;position:relative}
+.links a{font-size:14px;font-weight:600;color:#aab4c8;padding:7px 14px;border-left:2px solid #ffffff1c;transition:.25s}
+.links a:hover{color:#fff}.links a.on{color:#fff;border-color:var(--red);background:linear-gradient(90deg,#b3202a40,transparent)}
+.sb{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.nb{width:40px;height:40px;border-radius:50%;border:1px solid #ffffff30;background:none;color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:40px;font-weight:700;font-size:13.5px;border:1px solid #ffffff3a;color:#fff;transition:transform .2s,background .3s}
+.btn:hover{background:#ffffff1c}.btn.p{background:var(--red);border-color:var(--red)}.btn.p:hover{background:#cf2a36}
+.content{min-width:0;padding:26px clamp(18px,3.5vw,44px) 40px;max-width:1180px}
+.wrap{max-width:none;padding:0;margin:0}
+.hb{position:relative;border-radius:22px;overflow:hidden;background:var(--navy);color:#fff;min-height:430px;display:flex;align-items:flex-end;margin-bottom:18px}
 #sim{position:absolute;inset:0;width:100%;height:100%}
-.hi{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;min-height:min(86vh,720px);padding:70px 24px;pointer-events:none}
-.hi a,.hi button{pointer-events:auto}
-.hero h1{font-size:clamp(40px,6.2vw,84px);line-height:1.02;font-weight:800}
-.hero h1 span{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
-.hero h1 b{display:inline-block;font-weight:800;transform:translateY(105%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.09s + .1s)}
-.hero h1 .a b{color:#6ee7d9}
+.hb:before{content:'';position:absolute;inset:0;background:linear-gradient(95deg,#101626f2 15%,#101626a0 55%,transparent);z-index:1}
+.hbt{position:relative;z-index:2;padding:40px clamp(22px,4vw,48px);max-width:720px;pointer-events:none}.hbt a{pointer-events:auto}
+.hbt h2{font-size:clamp(32px,4.3vw,56px);line-height:1.05;font-weight:800}
+.hbt h2 span{display:block;overflow:hidden;padding-bottom:.08em}.hbt h2 b{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.14s + .15s)}
 @keyframes up{to{transform:none}}
-.role{font-size:clamp(17px,2vw,22px);color:#bcd4d3;margin:22px 0 6px;min-height:34px}
-.role b{color:#fff;font-weight:600}.caret{display:inline-block;width:2px;height:1.1em;background:var(--red);margin-left:3px;vertical-align:-3px;animation:bl 1s steps(1) infinite}
-@keyframes bl{50%{opacity:0}}
-.lead{max-width:560px;color:#9cbab9;margin:0}
-.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:40px;font-weight:600;font-size:14px;border:1px solid #ffffff40;transition:transform .2s,background .3s}
-.btn.p{background:#6ee7d9;color:#04282b;border-color:#6ee7d9}.btn:hover{background:#ffffff1f}.btn.p:hover{background:#9af2e8}
-.hint{position:absolute;left:24px;bottom:18px;font-size:12px;color:#7fa3a3;display:flex;gap:8px;align-items:center;pointer-events:none}
-.hint i{width:9px;height:9px;border-radius:50%;background:var(--red);animation:pl 1.6s infinite}
-@keyframes pl{0%{box-shadow:0 0 0 0 #d23a2faa}100%{box-shadow:0 0 0 12px #d23a2f00}}
-.ph{max-width:340px;margin:auto;perspective:900px}
-.ph div{position:relative;transition:transform .15s;transform-style:preserve-3d}
-.ph img{width:100%;aspect-ratio:3/3.7;object-fit:cover;object-position:50% 18%;border-radius:999px 999px 24px 24px;box-shadow:0 40px 70px -20px #000a;animation:fl 7s ease-in-out infinite}
-.ph div:before{content:'';position:absolute;inset:-14px 14px 14px -14px;border:1px solid #6ee7d980;border-radius:999px 999px 28px 28px}
-@keyframes fl{50%{transform:translateY(-8px)}}
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-34px;position:relative;z-index:3}
-.st{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--sh)}
-.st strong{font:800 34px 'Bricolage Grotesque';color:var(--teal);display:block;line-height:1.1}.st span{font-size:13px;color:var(--mute)}
-/* sections */
-section{padding:88px 0 10px}
-.sh{max-width:720px;margin-bottom:34px}.sh h2{font-size:clamp(28px,3.6vw,44px);line-height:1.1;font-weight:800}.sh p{color:var(--mute);margin:12px 0 0}
-.g{display:grid;gap:18px}.c3{grid-template-columns:repeat(3,1fr)}.c2{grid-template-columns:repeat(2,1fr)}
-.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;overflow:hidden;transition:transform .3s,border-color .3s}
-.card:before{content:'';position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,-50%),color-mix(in srgb,var(--teal) 16%,transparent),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
-.card:hover{border-color:var(--teal);transform:translateY(-4px)}.card:hover:before{opacity:1}
-.card h3{font-size:18px;margin:8px 0 10px;line-height:1.3}.card p{margin:0;color:var(--mute);font-size:14.5px}
-.tag{display:inline-block;font-size:12px;font-weight:600;color:var(--teal);background:var(--tint);padding:3px 11px;border-radius:20px}
-.about{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
-.about p{color:var(--mute)}.facts div{padding:12px 0;border-bottom:1px solid var(--line)}.facts div:last-child{border:0}.facts b{display:block;font-size:13px}.facts span{font-size:14px;color:var(--mute)}
-.tl{position:relative;display:grid;gap:16px;padding-left:28px}
-.tl:before,.tl:after{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--line)}
-.tl:after{background:var(--teal);bottom:auto;height:calc((100% - 16px)*var(--p,0))}
-.tl .card:after{content:'';position:absolute;left:-29px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--teal)}
-.tl .card{overflow:visible}.card ul{margin:10px 0 0;padding-left:18px;color:var(--mute);font-size:14px}
-/* pubs */
+.hbt p{color:#b6c0d4;margin:16px 0 0;max-width:520px;font-size:17px}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.lg{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;font-size:12px;color:#aab4c8}.lg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;border-top:3px solid var(--ac,var(--red))}
+.st:nth-child(4n+2){--ac:var(--or)}.st:nth-child(4n+3){--ac:var(--gr)}.st:nth-child(4n+4){--ac:var(--bl)}
+.st strong{font:800 32px/1.1 'Manrope',system-ui,sans-serif;display:block;color:var(--ink)}.st span{font-size:12.5px;color:var(--mute);font-family:'Manrope',system-ui,sans-serif}
+.prof{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.prof a{border:1px solid var(--line);background:var(--card);padding:7px 15px;border-radius:30px;font:600 13px 'Manrope',system-ui,sans-serif;transition:.25s}.prof a:hover{border-color:var(--red);color:var(--teal)}
+section{padding-top:48px}
+.sh{margin-bottom:22px}
+.sh h2{font-size:clamp(18px,2.2vw,24px);font-weight:800;line-height:1.25;color:#fff;background:var(--red);padding:11px 20px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.sh h2:after{content:'';width:76px;height:10px;flex:none;border-radius:5px;background:linear-gradient(90deg,#2f6fb5 20%,#5aa469 20% 40%,#2b3349 40% 60%,#e08a2d 60% 80%,#fff 80%)}
+.sh p{color:var(--mute);margin:10px 4px 0;font-size:16px}
+.g{display:grid;gap:16px}.c3{grid-template-columns:repeat(3,1fr)}.c2{grid-template-columns:repeat(2,1fr)}
+.g>.card:nth-child(4n+1),.tl .card:nth-child(4n+1){--ac:var(--red)}.g>.card:nth-child(4n+2),.tl .card:nth-child(4n+2){--ac:var(--or)}.g>.card:nth-child(4n+3),.tl .card:nth-child(4n+3){--ac:var(--gr)}.g>.card:nth-child(4n+4),.tl .card:nth-child(4n+4){--ac:var(--bl)}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ac,var(--line));border-radius:12px;padding:22px 24px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.card:before{content:'';position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx,50%) var(--my,-50%),color-mix(in srgb,var(--ac,var(--red)) 14%,transparent),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh)}.card:hover:before{opacity:1}
+.card h3{font-size:17.5px;margin:8px 0 8px;line-height:1.3;font-weight:800}.card p{margin:0;color:var(--mute);font-size:15.5px;line-height:1.6}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--tint);padding:3px 11px;border-radius:20px}
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.facts div{padding:11px 0;border-bottom:1px solid var(--line)}.facts div:last-child{border:0}.facts b{display:block;font:700 13px 'Manrope',system-ui,sans-serif}.facts span{font-size:15px;color:var(--mute)}
+.col2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sub{font-weight:800;font-size:15px;margin:34px 0 14px;border-left:4px solid var(--red);padding-left:11px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}.chips span{background:var(--tint);color:var(--teal);font-size:13px;font-weight:600;padding:4px 12px;border-radius:20px}
+.tl{position:relative;display:grid;gap:14px;padding-left:26px}
+.tl:before,.tl:after{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:var(--line)}.tl:after{background:var(--red);bottom:auto;height:calc((100% - 16px)*var(--p,0))}
+.tl .card{overflow:visible}.tl .card:after{content:'';position:absolute;left:-27px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--ac,var(--red))}
+.card ul{margin:10px 0 0;padding-left:18px;color:var(--mute);font-size:15px}
+.bar{height:8px;border-radius:8px;background:var(--line);margin-top:12px;overflow:hidden}.bar i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--bl),var(--gr),var(--or),var(--red));transition:width 1.5s cubic-bezier(.2,.8,.2,1) .2s}.v .bar i{width:var(--w)}
+.big{font-weight:800;font-size:28px;color:var(--ink);line-height:1}.big small{font-size:14px;color:var(--mute);font-weight:600}
 .fl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.f{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--mute);transition:.25s}
-.f.on{background:var(--teal);color:#04282b;border-color:var(--teal)}
-.q{width:100%;max-width:400px;padding:11px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;margin-bottom:16px}
-.pub{padding:18px 22px;margin-bottom:12px;animation:in .5s both;animation-delay:calc(var(--k)*50ms)}
+.f{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:7px 16px;font-size:13px;font-weight:700;color:var(--mute);transition:.25s}.f.on{background:var(--red);color:#fff;border-color:var(--red)}
+.q{width:100%;max-width:400px;padding:11px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:15px;margin-bottom:16px}
+.pub{margin-bottom:12px;animation:in .5s both;animation-delay:calc(var(--k)*50ms)}.pub h3{font-size:16px}.pub p{font-size:13.5px}
 @keyframes in{from{opacity:0;transform:translateY(14px)}}
-.pub h3{font-size:16px}.pub p{font-size:12.5px}.pub a{display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:var(--teal)}
 .pt{display:flex;justify-content:space-between;font-size:12px;color:var(--mute)}.pt b{color:var(--teal)}
-#more{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:10px 22px;font-weight:600}
-/* marquee */
-.mq{overflow:hidden;margin-top:24px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.mq div{display:flex;gap:10px;width:max-content;animation:mq 40s linear infinite}.mq:hover div{animation-play-state:paused}
-.mq span{white-space:nowrap;border:1px solid var(--line);background:var(--card);padding:8px 18px;border-radius:30px;font-size:14px}
-@keyframes mq{to{transform:translateX(-50%)}}
-/* gallery */
-.gal{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
-.gal figure{margin:0;padding:0;cursor:zoom-in}.gal img{width:100%;height:520px;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.gal figure:hover img{transform:scale(1.05)}.gal figcaption{padding:14px 20px;font-size:13.5px;color:var(--mute)}
-#lb{position:fixed;inset:0;background:#000d;z-index:80;display:none;place-items:center;padding:24px;cursor:zoom-out}
-#lb.o{display:grid;animation:in .3s}#lb img{max-height:92vh;border-radius:12px}
-/* contact */
-.ct{background:#071a1d;color:#fff;margin-top:90px;padding:80px 0 30px;text-align:center}
-.ct h2{font-size:clamp(32px,5.5vw,68px);font-weight:800;line-height:1.05}.ct p{color:#9cbab9;max-width:520px;margin:16px auto 28px}
-.ct .acts{justify-content:center}
-footer{margin-top:60px;padding-top:22px;border-top:1px solid #ffffff1a;font-size:13px;color:#7fa3a3;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-#top{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:0;background:var(--teal);color:#04282b;font-size:18px;opacity:0;transform:translateY(20px);transition:.3s;z-index:40}
-#top.s{opacity:1;transform:none}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.v{opacity:1;transform:none}
-@media(max-width:900px){.hi,.about,.gal{grid-template-columns:1fr}.c3,.c2{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.ph{max-width:260px;order:-1}.hi{padding-top:40px}
-#menu{display:block}.links{position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#071a1d;padding:10px 24px;display:none}.links.o{display:flex}.gal img{height:420px}}
-@media(prefers-reduced-motion:reduce){*,:before,:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero h1 b{transform:none}html{scroll-behavior:auto}}
-
-.stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-.prof{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.prof a{border:1px solid var(--line);background:var(--card);padding:8px 16px;border-radius:30px;font-size:13.5px;font-weight:600;transition:.25s}.prof a:hover{border-color:var(--teal);color:var(--teal)}
-.sub{font:700 13px 'Instrument Sans';color:var(--mute);margin:30px 0 12px;letter-spacing:.02em}
-.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{background:var(--tint);color:var(--teal);font-size:13px;font-weight:500;padding:5px 13px;border-radius:20px}
-.bar{height:8px;border-radius:8px;background:var(--line);margin-top:12px;overflow:hidden}.bar i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--teal),var(--red));transition:width 1.5s cubic-bezier(.2,.8,.2,1) .2s}.v .bar i{width:var(--w)}
-.big{font:800 30px 'Bricolage Grotesque';color:var(--teal);line-height:1}.big small{font-size:14px;color:var(--mute);font-weight:500}
-details.card{cursor:pointer}details summary{list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}details summary::-webkit-details-marker{display:none}
-details summary:after{content:'+';font:600 22px/1 'Bricolage Grotesque';color:var(--teal);transition:transform .3s}details[open] summary:after{transform:rotate(45deg)}
-details .more{margin-top:14px;animation:in .4s both}details .more p{margin-bottom:10px}
-.tag.pub-s{background:var(--teal);color:#04282b}
-.soon{border-style:dashed;background:transparent}.soon:hover{transform:none}.soon h3{color:var(--mute)}
-.auth{font-size:12.5px;color:var(--mute);margin:6px 0 0}
-.lk{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--teal)}
-.gal figure.h{display:none}.gal img{height:480px}
-.col2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:900px){.col2{grid-template-columns:1fr}}
+.lk{display:inline-block;margin-top:10px;font:700 13px 'Manrope',system-ui,sans-serif;color:var(--teal)}.pub a{display:inline-block;margin-top:8px;font:700 13px 'Manrope',system-ui,sans-serif;color:var(--teal)}
+#more{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:10px 22px;font:700 14px 'Manrope',system-ui,sans-serif}
+details.card{cursor:pointer}details summary{list-style:none;display:flex;justify-content:space-between;gap:12px}details summary::-webkit-details-marker{display:none}
+details summary:after{content:'+';font:600 22px/1 'Manrope',system-ui,sans-serif;color:var(--teal);transition:transform .3s}details[open] summary:after{transform:rotate(45deg)}details .more{margin-top:12px;animation:in .4s both}details .more p{margin-bottom:10px}
+.soon{border-style:dashed;background:transparent}.soon:hover{transform:none;box-shadow:none}.soon h3{color:var(--mute)}
+.mq{overflow:hidden;margin-top:22px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}.mq div{display:flex;gap:10px;width:max-content;animation:mq 40s linear infinite}.mq:hover div{animation-play-state:paused}
+.mq span{white-space:nowrap;border:1px solid var(--line);background:var(--card);padding:7px 18px;border-radius:30px;font:600 14px 'Manrope',system-ui,sans-serif}@keyframes mq{to{transform:translateX(-50%)}}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}.gal figure{margin:0;padding:0;cursor:zoom-in}.gal img{width:100%;height:480px;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}.gal figure:hover img{transform:scale(1.04)}.gal figcaption{padding:12px 18px;font-size:14px;color:var(--mute)}
+.ct{margin-top:56px;background:var(--navy);color:#fff;border-radius:22px;padding:56px clamp(22px,4vw,48px) 24px}
+.ct h2{font:800 clamp(30px,4.5vw,52px)/1.08 'Manrope',system-ui,sans-serif}.ct p{color:#aab4c8;max-width:520px;margin:14px 0 6px}.ct .acts{margin-top:20px}
+.ct footer{margin-top:46px;padding-top:18px;border-top:1px solid #ffffff1a;font:13px 'Manrope',system-ui,sans-serif;color:#8591a8;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+#lb{position:fixed;inset:0;background:#000d;z-index:95;display:none;place-items:center;padding:24px;cursor:zoom-out}#lb.o{display:grid;animation:in .3s}#lb img{max-height:92vh;border-radius:12px}
+#top{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:0;background:var(--red);color:#fff;font-size:18px;opacity:0;transform:translateY(20px);transition:.3s;z-index:40}#top.s{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.v{opacity:1;transform:none}
+@media(max-width:980px){.app{display:block}.side{position:sticky;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 14px}
+.side>div:first-child{display:flex;align-items:center;gap:12px}.av{width:44px;height:44px;padding:2px;margin:0}.av img{border-width:2px}.side h1{font-size:16px}.rl,.sb .btn{display:none}.sb{margin:0 0 0 auto}
+.links{flex-direction:row;overflow-x:auto;width:100%;order:3;scrollbar-width:none}.links a{white-space:nowrap;border-left:0;border-bottom:2px solid transparent;padding:6px 12px}.links a.on{border-color:var(--red);background:none}
+.about,.col2,.gal,.c2,.c3{grid-template-columns:1fr}.hb{min-height:380px}.gal img{height:400px}}
+@media(prefers-reduced-motion:reduce){*,:before,:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hbt h2 b{transform:none}html{scroll-behavior:auto}}
 </style></head><body>
 <div id="prog"></div>
-<nav><div class="wrap ni"><a href="#home" class="logo">ISMILE<i>.</i></a>
-<div class="links" id="links"><a href="#about">About</a><a href="#research">Research</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#publications">Publications</a><a href="#skills">Skills</a><a href="#awards">Awards</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div>
-<div style="display:flex;gap:8px"><button class="nb" id="theme" aria-label="Toggle dark mode">☾</button><button class="nb" id="menu" aria-label="Menu">☰</button></div></div></nav>
-<main>
+<div class="app">
+<aside class="side"><div><div class="av"><img src="portrait.jpg" alt="Portrait of Md. Ismile Hossain Bhuiyan"></div><div><h1>Md. Ismile Hossain Bhuiyan</h1><p class="rl">Veterinarian &amp; researcher in <b id="typed"></b><span class="caret"></span></p></div></div>
+<nav class="links" id="links" aria-label="Main"><a href="#about">About</a><a href="#scholarly">Scholarly work</a><a href="#research">Research</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#publications">Publications</a><a href="#skills">Skills</a><a href="#awards">Awards</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></nav>
+<div class="sb"><a class="btn p mag" href="mailto:ismile.apma-1708046@sau.edu.bd">Email</a><a class="btn mag" href="public-cv.docx" download>CV ↓</a><button class="nb" id="theme" aria-label="Toggle dark mode">☾</button><button id="menu" hidden></button></div></aside>
+<div class="content"><main>
+<header class="hb" id="home"><canvas id="sim" aria-hidden="true"></canvas><div class="hbt"><h2 aria-label="Where animal health meets public health."><span><b style="--i:0">Where animal health</b></span><span><b style="--i:1">meets public health.</b></span></h2><p>Meat science, infectious disease epidemiology and One Health research from Dhaka, Bangladesh.</p>
+<div class="acts"><a class="btn p mag" href="#research">Explore my research</a><a class="btn mag" href="#publications">Publications</a></div>
+<div class="lg" aria-hidden="true"><span><i style="background:#e5414b"></i>Hotspot</span><span><i style="background:#e08a2d"></i>High cluster</span><span><i style="background:#2b3349;border:1px solid #556"></i>Not significant</span><span><i style="background:#5aa469"></i>Low cluster</span><span><i style="background:#2f6fb5"></i>Coldspot</span></div></div></header>
 <div class="wrap stats"><div class="st"><strong data-n="3.87" data-d="2">0</strong><span>MS CGPA · Animal Science</span></div><div class="st"><strong data-n="1" data-s="st">0</strong><span>Rank in MS programme</span></div><div class="st"><strong id="pc" data-n="19">0</strong><span>Journal articles</span></div><div class="st"><strong id="rc" data-n="9">0</strong><span>Manuscripts under review</span></div><div class="st"><strong data-n="5">0</strong><span>Research projects</span></div><div class="st"><strong data-n="3">0</strong><span>Posters &amp; talks</span></div></div>
 <div class="wrap prof rv"><a target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=o4gz6KMAAAAJ&hl=en">Google Scholar ↗</a><a target="_blank" rel="noopener" href="https://orcid.org/0009-0006-8325-3813">ORCID 0009-0006-8325-3813 ↗</a><a href="mailto:ismile.apma-1708046@sau.edu.bd">ismile.apma-1708046@sau.edu.bd</a></div>
 
@@ -168,8 +148,10 @@ details .more{margin-top:14px;animation:in .4s both}details .more p{margin-botto
 <div class="ct" id="contact"><div class="wrap"><h2 class="rv">Let’s advance research together.</h2><p class="rv">Open to academic collaboration, interdisciplinary research and scientific exchange.</p>
 <div class="acts"><a class="btn p mag" href="mailto:ismile.apma-1708046@sau.edu.bd">✉ ismile.apma-1708046@sau.edu.bd</a><a class="btn mag" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=o4gz6KMAAAAJ&hl=en">Scholar ↗</a><a class="btn mag" target="_blank" rel="noopener" href="https://orcid.org/0009-0006-8325-3813">ORCID ↗</a><a class="btn mag" href="public-cv.docx" download>Download CV ↓</a></div>
 <footer><span>© <span id="yr"></span> Md. Ismile Hossain Bhuiyan</span><span>Dhaka, Bangladesh</span></footer></div></div>
+</div></div>
 <div id="lb"><img alt=""></div><button id="top" aria-label="Back to top">↑</button>
 <script>
+
 const pubs=[{"title": "Impact of L-citrulline on meat production and quality: A study on its effects on meat attributes and nutritional composition", "year": "2025", "citation": "Bhuiyan, M. I. H., Ahmed, M. J., Mamun, M., Islam, K., Chalise, R., Bhandari, P., Alam, K. E., Kaderi, I. J., Alam, M. J., Hossain, D., and Ali, M. (2025). Impact of L-citrulline on meat production and quality: A study on its effects on meat attributes and nutritional composition. Poultry Science, 104(12), 106039. https://doi.org/10.1016/j.psj.2025.106039.", "url": "https://doi.org/10.1016/j.psj.2025.106039", "kind": "Journal article"}, {"title": "Farmers’ knowledge, attitudes, and practices regarding lumpy skin disease in Northern Bangladesh", "year": "2026", "citation": "Sama, S. P.†, Bhuiyan, M. I. H.†, Bhandari, P.†, Chalise, R., Midul, R. H., Ahmed, M., Shihab, K. M., Nirob, A. I., Hossain, D., and Ahmed, J. (2026). Farmers’ knowledge, attitudes, and practices regarding lumpy skin disease in Northern Bangladesh. BMC Veterinary Research, 22, 434. https://doi.org/10.1186/s12917-026-05555-z.", "url": "https://doi.org/10.1186/s12917-026-05555-z", "kind": "Journal article"}, {"title": "First nationwide assessment of knowledge, attitudes, and practices related to tick-borne diseases among livestock farmers in Bangladesh", "year": "2026", "citation": "Ahmed, M. J., Bhuiyan, M. I. H., Islam, S. M. S., Bhandari, P., Chalise, R., Nirob, A. I., Jami, S. S., Farzana, M., Gefari, A. Z., Bristy, F., & Hossain, D. (2026). First nationwide assessment of knowledge, attitudes, and practices related to tick-borne diseases among livestock farmers in Bangladesh. Acta Tropica, 279, 108126. https://doi.org/10.1016/j.actatropica.2026.108126", "url": "https://doi.org/10.1016/j.actatropica.2026.108126", "kind": "Journal article"}, {"title": "Determination of heavy metals and their health risks in processed poultry products collected from Dhaka city", "year": "2026", "citation": "Eamin, M.*, Alam, K. E.*, Bhuiyan, M. I.H*, Binte Mustafiz, S. S., Hasan, M. K., Rahman, M. A., Kabir, G. A., Kaium, A., Hossain, D., Ahmed, M. J., & Islam Chowdhury, M. T. (2026). Determination of heavy metals and their health risks in processed poultry products collected from Dhaka city. Journal of Food Protection, 100873. https://doi.org/10.1016/j.jfp.2026.100873.", "url": "https://doi.org/10.1016/j.jfp.2026.100873", "kind": "Journal article"}, {"title": "Factors influencing the adoption of biosecurity practices in livestock farming in Bangladesh for infectious disease prevention", "year": "2026", "citation": "Islam, S. M. S.*, Bhandari, P.*, Bhuiyan, M. I. H.*, Supty, S. I., Chalise, R., Rahman, M., Ullah, M. T., Farhan, M. A. A., Al Muktadir, M., Islam, M. M., Hossain, D., & Ahmed, M. J. (2026). Factors influencing the adoption of biosecurity practices in livestock farming in Bangladesh for infectious disease prevention. Scientific Reports. https://doi.org/10.1038/s41598-026-62398-2.", "url": "https://doi.org/10.1038/s41598-026-62398-2", "kind": "Journal article"}, {"title": "Vector-borne diseases in Bangladesh: a farmer-centric cross-sectional assessment", "year": "2026", "citation": "Bhandari, P., Chalise, R., Bhuiyan, M. I. H., Nirob, A. I., Jami, S. S., Hossain, M. H., Chowdhury, M. J., Hossain, D., & Ahmed, M. J. (2026). Vector-borne diseases in Bangladesh: a farmer-centric cross-sectional assessment. npj Veterinary Sciences, 1(1), 11. https://doi.org/10.1038/s44433-026-00013-w", "url": "https://doi.org/10.1038/s44433-026-00013-w", "kind": "Journal article"}, {"title": "Food‐Borne Diseases in Bangladesh: First Assessment of Knowledge, Attitudes, and Practices of Farmers", "year": "2026", "citation": "Ahmed, M. J., Bhandari, P., Bhuiyan, M. I. H.*, Chalise, R., Sarker, S., Yousuf, M. S. B., Easin, M., Rahi, M. R. U., Chakrabarty, H., & Paul, A. (2026). Food‐Borne Diseases in Bangladesh: First Assessment of Knowledge, Attitudes, and Practices of Farmers. Veterinary Medicine International, 2026, 3617712.", "url": "", "kind": "Journal article"}, {"title": "Analyzing the impact of climate change and renewable energy on agricultural productivity in Bangladesh using an ARDL model", "year": "2026", "citation": "Ahammad, S., Datta, T., Mosharof, N. B., Islam, M. F., Bhuiyan, M. I. H., Ahmed, M. J., & Alam, K. E. (2026). Analyzing the impact of climate change and renewable energy on agricultural productivity in Bangladesh using an ARDL model. Discover Sustainability. https://doi.org/10.1007/s43621-026-03525-x.", "url": "https://doi.org/10.1007/s43621-026-03525-x", "kind": "Journal article"}, {"title": "One health assessment of farmers’ knowledge, attitudes, and practices (KAPs) on zoonoses in Bangladesh", "year": "2025", "citation": "Ahmed, M.J., Bhuiyan, M.I.H., Chalise, R., Mamun, M., Bhandari, P., Islam, K., Jami, S.S., Ali, M., Sabrin, M.S. One health assessment of farmers’ knowledge, attitudes, and practices (KAPs) on zoonoses in Bangladesh. Scientific Reports 2025, 15, 1258. https://doi.org/10.1038/s41598-025-85462-9.", "url": "https://doi.org/10.1038/s41598-025-85462-9", "kind": "Journal article"}, {"title": "Spatiotemporal Distribution and Meteorological Determinants of Lumpy Skin Disease (LSD) Occurrence in Bangladesh From 2020 to 2023", "year": "2025", "citation": "Ahmed, M. J., Alam, K. E., Talukdar, F., Bhuiyan, M. I. H., Bhandari, P., Chalise, R., Mahamud, D., Hossain, M. I., Sabrin, M. S., & Chowdhury, M. T. I. (2025). Spatiotemporal Distribution and Meteorological Determinants of Lumpy Skin Disease (LSD) Occurrence in Bangladesh From 2020 to 2023. Transboundary and Emerging Diseases, 2025(1), 4259023. https://doi.org/10.1155/tbed/4259023.", "url": "https://doi.org/10.1155/tbed/4259023", "kind": "Journal article"}, {"title": "Time series analysis of dengue incidence and its association with meteorological risk factors in Bangladesh", "year": "2025", "citation": "Alam, K.E.; Ahmed, M.J.; Chalise, R.; Rahman, M.A.; Mathin, T.T.; Bhuiyan, M.I.H.; Bhandari, P.; Hossain, D. Time series analysis of dengue incidence and its association with meteorological risk factors in Bangladesh. Plos one 2025, 20, e0323238. https://doi.org/10.1371/journal.pone.0323238.", "url": "https://doi.org/10.1371/journal.pone.0323238", "kind": "Journal article"}, {"title": "Antimicrobial Resistance in Meat and Meat Products from Asia: An Urgent One Health Challenge-A Systematic Review and Meta-analysis", "year": "2025", "citation": "Ahmed, M. J., Hossain, M. I., Bhuiyan, M. I. H., Rahman, M. A., Kaderi, I. J., Nirob, A. I., ... & Hossain, D. (2025). Antimicrobial Resistance in Meat and Meat Products from Asia: An Urgent One Health Challenge-A Systematic Review and Meta-analysis. Poultry Science, 105811. https://doi.org/10.1016/j.psj.2025.105811.", "url": "https://doi.org/10.1016/j.psj.2025.105811", "kind": "Journal article"}, {"title": "Lumpy Skin Disease in Cattle and Buffalo in Asian Countries: A Systematic Review and Meta-Analysis", "year": "2025", "citation": "Ahmed, M. J., Chalise, R., Bhandari, P., Rahman, M. A., Alam, K. E., Rahman, M. A., Bhuiyan, M. I. H., Chowdhury, M. J., Hossain, M. I., Hossain, D., Sabrin, M. S., & Ali, M. (2025). Lumpy Skin Disease in Cattle and Buffalo in Asian Countries: A Systematic Review and Meta-Analysis. Veterinary medicine and science, 11(5), e70607. https://doi.org/10.1002/vms3.70607.", "url": "https://doi.org/10.1002/vms3.70607", "kind": "Journal article"}, {"title": "Prevalence and Serotype Distribution of Foot and Mouth Disease (FMD) Virus in Asian Countries: A Systematic Review and Meta‐Analysis", "year": "2026", "citation": "Ahmed, M. J., Hossain, M. I., Rahman, M. A., Bhuiyan, M. I. H., Bhandari, P., Alam, K. E., Chalise, R., Kaderi, I. J., Rahi, M. A. I., & Tarin, T. (2026). Prevalence and Serotype Distribution of Foot and Mouth Disease (FMD) Virus in Asian Countries: A Systematic Review and Meta‐Analysis. Veterinary Medicine International, 2026(1), 5492291. https://doi.org/10.1155/vmi/5492291.", "url": "https://doi.org/10.1155/vmi/5492291", "kind": "Journal article"}, {"title": "Staphylococcus aureus in bovine intramammary infections: A global systematic review and meta-analysis of prevalence and antimicrobial resistance patterns", "year": "2026", "citation": "Ahmed, M. J., Rahman, M. A., Chalise, R., Bhandari, P., Bhuiyan, M. I. H., Hossain, M. I., Kaderi, I. J., Rahi, M. A. I., & Hossain, D. (2026). Staphylococcus aureus in bovine intramammary infections: A global systematic review and meta-analysis of prevalence and antimicrobial resistance patterns. New Microbes and New Infections, 74, 101860. https://doi.org/10.1016/j.nmni.2026.101860", "url": "https://doi.org/10.1016/j.nmni.2026.101860", "kind": "Journal article"}, {"title": "One health implications into the global prevalence, antimicrobial resistance, and resistome profiling of Streptococcus suis in pigs: A systematic review and meta-analysis", "year": "2026", "citation": "Ahmed, M. J., Rahman, M. A., Hossain Bhuiyan, M. I., Chalise, R., Bhandari, P., & Hossain, D. (2026). One health implications into the global prevalence, antimicrobial resistance, and resistome profiling of Streptococcus suis in pigs: A systematic review and meta-analysis. The Swine Journal, 1(3), 100127. https://doi.org/10.1016/j.swine.2026.100127", "url": "https://doi.org/10.1016/j.swine.2026.100127", "kind": "Journal article"}, {"title": "Spatiotemporal trends of foot and mouth disease (FMD) in Bangladesh from 2017 to 2023 and their associations with climatic factors and machine learning (ML) based prediction", "year": "2026", "citation": "Ahmed, M. J., Alam, K. E., Talukder, F., Bhandari, P., Bhuiyan, M. I. H., Mamun, M., Rahman, M. A., Chalise, R., Hossain, M. I., Morshed, M., Sabrin, M. S., Chowdhury, M. T. I., Alam, M. J., & Hossain, D. (2026). Spatiotemporal trends of foot and mouth disease (FMD) in Bangladesh from 2017 to 2023 and their associations with climatic factors and machine learning (ML) based prediction. Scientific Reports, 16(1), 26301. https://doi.org/10.1038/s41598-026-57440-2", "url": "https://doi.org/10.1038/s41598-026-57440-2", "kind": "Journal article"}, {"title": "Bovine Spongiform Encephalopathy (BSE) in Meat: Risks, Detection, and Management, Advances in Sustainable Meat Technology", "year": "2026", "citation": "Ahmed, M. J., Bhandari, P., Chalise, R., Bhuiyan, M. I. H., Hossain, M. I., Alam, K. E., Nirob, K. I., Islam, M.M., Hossain, D. (2026). Bovine Spongiform Encephalopathy (BSE) in Meat: Risks, Detection, and Management, Advances in Sustainable Meat Technology. Taylor and Francis (CRC Press). DOI: 10.1201/9781003689560-14.", "url": "https://doi.org/10.1201/9781003689560-14", "kind": "Book chapter"}, {"title": "Optimizing Beef Fattening Management Strategies in Sadar Upazila, Kushtia: A Comprehensive Study", "year": "2025", "citation": "Mamun, M.; Islam, K.; Rahman, M.Z.; Bhuiyan, M.I.H.; Nirob, A.I.; Sikder, T.; Ali, M. Optimizing Beef Fattening Management Strategies in Sadar Upazila, Kushtia: A Comprehensive Study. Research in Agriculture Livestock and Fisheries 2025, 12, 175-186. https://doi.org/10.3329/ralf.v12i2.84189.", "url": "https://doi.org/10.3329/ralf.v12i2.84189", "kind": "Journal article"}, {"title": "Prevalence of Mastitis in dairy cows in some regions of Bangladesh", "year": "2023", "citation": "Ahmed, M.J.; Al Zaber, M.A.; Bhuiyan, M.I.H.; Tusher, M.J.H.; Mahmood, J.; Devkota, N.; Yadav, N.; Promy, I.J. Prevalence of Mastitis in dairy cows in some regions of Bangladesh. Journal of Agriculture and Veterinary Science 2023. https://doi.org/10.9790/2380-1605010108.", "url": "https://doi.org/10.9790/2380-1605010108", "kind": "Journal article"}],reviews=["Pilot evaluation of broiler production under an agrivoltaic solar-PV system in Bangladesh: production performance, land-use integration and operational economics under internal review", "Bhuiyan, M. I. H. et al., (2026), Flea-borne Disease Preparedness Among Urban Companion Animal Owners in Bangladesh: A One Health Investigation, Submitted to Springer Nature (npj parasitology).", "Bhuiyan, M. I. H. et al., (2026), Heavy Metal Contamination in Milk of Dhaka, Bangladesh: Source-specific Comparison and Human Health Risk Assessment, Submitted to Elsevier (Current Research in Toxicology)", "Bhuiyan, M. I. H. et al., (2026), Assessing Knowledge, Attitude, and Practices (KAP) of Food Safety among Dhaka City's Street Food Vendors: A Public Health Issue. Submitted to Cell Press (Heliyon).", "Bhuiyan, M. I. H. et al., (2026), Spatiotemporal Distribution of Peste des Petits Ruminants (PPR) and Its Association with Meteorological Risk Factors in Bangladesh (2017-2023). Submitted to Elsevier (Preventive Veterinary Medicine).", "Bhuiyan, M. I. H. et al., (2026), Serosurveillance of Peste des Petits Ruminants (PPR) Virus in Sheep and Goats in South Asia: A Systematic Review and Meta-analysis. Submitted to WILEY (Veterinary Medicine and Science).", "Bhuiyan, M. I. H. et al., (2026), Analyzing Large-Scale Healthcare Data with Large Language Models: Applications and Challenges. Submitted to Nature (Discover Artificial Intelligence).", "Bhuiyan, M. I. H. et al., (2026), Morpho-Molecular Identification and Characterization of Major Fungal Pathogens Associated with Maize Diseases in Selected Areas of Bangladesh. Submitted to WILEY (Journal of Phytopathology)", "Bhuiyan, M. I. H. et al., (2026), Handbook of Infectious Disease (Staphylococcus aureus: Epidemiology, Pathogenesis, Resistance Mechanisms, Antimicrobial Resistance Patterns, and Therapeutic Management). Book chapter submitted to Springer."];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
 $('#yr').textContent=new Date().getFullYear();$('#pc').dataset.n=pubs.filter(p=>p.kind=='Journal article').length;$('#rc').dataset.n=reviews.length;
@@ -226,8 +208,6 @@ const secs=$$('main section'),no=new IntersectionObserver(es=>es.forEach(e=>{if(
 // card spotlight, magnetic buttons, portrait tilt
 document.addEventListener('pointermove',e=>{const c=e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}
 if(RM)return;$$('.mag').forEach(b=>{const r=b.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);b.style.transform=Math.hypot(dx,dy)<90?`translate(${dx*.22}px,${dy*.3}px)`:''})});
-const tilt=$('#tilt');$('.ph').addEventListener('pointermove',e=>{if(RM)return;const r=tilt.getBoundingClientRect();tilt.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*14}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*14}deg)`});
-$('.ph').addEventListener('pointerleave',()=>tilt.style.transform='');
 // marquee
 const sk=['PCR','qPCR','RT-qPCR','ELISA','MALDI-TOF','R','SPSS','ArcGIS','KoboToolBox','EndNote','BioRender','Meat proximate analysis','Antimicrobial susceptibility','Cell culture','Spatial epidemiology'];
 $('#mq').innerHTML=[...sk,...sk].map(s=>`<span>${s}</span>`).join('');
@@ -242,24 +222,18 @@ $('#list').innerHTML=v.map((p,i)=>`<article class="card pub" style="--k:${i}"><d
 $('#more').style.display=d.length>6?'inline-block':'none';$('#more').textContent=exp?'Show fewer ↑':`Show all ${d.length} ↓`}
 $$('.f').forEach(b=>b.onclick=()=>{$$('.f').forEach(x=>x.classList.remove('on'));b.classList.add('on');flt=b.dataset.f;exp=false;render()});
 $('#q').oninput=()=>{exp=false;render()};$('#more').onclick=()=>{exp=!exp;render()};render();
-// outbreak simulation (hero)
-(function(){const cv=$('#sim'),x=cv.getContext('2d');let W,H,N=[],dpr=Math.min(devicePixelRatio||1,2),P={x:-999,y:-999};
-function init(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
-N=Array.from({length:Math.min(130,Math.round(W*H/8500))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,s:0,t:0}));N[0].s=1}
-function inf(n){if(n.s==0){n.s=1;n.t=0}}
-function step(){x.clearRect(0,0,W,H);const R=95;
-for(const n of N){n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;
-const dx=n.x-P.x,dy=n.y-P.y,d=Math.hypot(dx,dy);if(d<110){n.x+=dx/d*.8;n.y+=dy/d*.8}
-if(n.s>0){n.t++;if(n.s==1&&n.t>320){n.s=2;n.t=0}else if(n.s==2&&n.t>500){n.s=0;n.t=0}}}
-for(let i=0;i<N.length;i++){const a=N[i];for(let j=i+1;j<N.length;j++){const b=N[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<R){
-if((a.s==1)!=(b.s==1)&&Math.random()<.006){inf(a);inf(b)}
-const hot=a.s==1||b.s==1;x.strokeStyle=hot?`rgba(255,110,95,${.5*(1-d/R)})`:`rgba(110,231,217,${.16*(1-d/R)})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}
-for(const n of N){const r=n.s==1?4+Math.sin(n.t*.12)*1.2:n.s==2?2.4:2.6;x.fillStyle=n.s==1?'#ff6b5c':n.s==2?'rgba(110,231,217,.35)':'#6ee7d9';
-if(n.s==1){x.shadowColor='#ff6b5c';x.shadowBlur=14}else x.shadowBlur=0;x.beginPath();x.arc(n.x,n.y,r,0,7);x.fill()}
-x.shadowBlur=0;if(Math.random()<.004)inf(N[Math.random()*N.length|0]);if(!RM)requestAnimationFrame(step)}
-init();addEventListener('resize',init);const hero=$('#home');
-const hit=e=>{const r=cv.getBoundingClientRect();P.x=e.clientX-r.left;P.y=e.clientY-r.top};
-hero.addEventListener('pointermove',hit);hero.addEventListener('pointerleave',()=>P.x=-999);
-hero.addEventListener('pointerdown',e=>{hit(e);N.forEach(n=>{if(Math.hypot(n.x-P.x,n.y-P.y)<130)inf(n)})});
-step()})();
+// cluster-map hero
+(function(){const cv=$('#sim'),x=cv.getContext('2d');let W,H,dpr=Math.min(devicePixelRatio||1,2),P={x:-999,y:-999,a:0,g:0},t=0,S=21;
+const C=['#2f6fb5','#5aa469','#2b3349','#e08a2d','#e5414b'];
+function init(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+const val=(i,j)=>(Math.sin(i*.31+t*.6)+Math.sin(j*.37-t*.45)+Math.sin((i+j)*.18+t*.3)+Math.sin(Math.hypot(i-24,j-7)*.35-t*.8)+4)/8;
+function hex(px,py,r){x.beginPath();for(let k=0;k<6;k++){const a=Math.PI/3*k+Math.PI/6;x.lineTo(px+r*Math.cos(a),py+r*Math.sin(a))}x.closePath()}
+function draw(){x.clearRect(0,0,W,H);const w=S*Math.sqrt(3),h=S*1.5;P.g+=(P.a-P.g)*.08;let r=0;
+for(let y=0;y<H+S;y+=h,r++){let c=0;for(let px=(r%2?w/2:0);px<W+w;px+=w,c++){let v=val(c,r);const d=Math.hypot(px-P.x,y-P.y);if(d<170)v=Math.min(1,v+(1-d/170)*.75*P.g);
+const k=v>.74?4:v>.6?3:v>.42?2:v>.3?1:0;x.globalAlpha=k==2?.7:.5+v*.45;x.fillStyle=C[k];hex(px,y,S-2.5);x.fill()}}
+x.globalAlpha=1;t+=.012;if(!RM)requestAnimationFrame(draw)}
+init();addEventListener('resize',()=>{init();RM&&draw()});const hb=$('#home');
+hb.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();P.x=e.clientX-r.left;P.y=e.clientY-r.top;P.a=1});hb.addEventListener('pointerleave',()=>P.a=0);
+draw()})();
+
 </script></body></html>
