@@ -5,290 +5,313 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080d18;--card:#111a2c;--ink:#e8edf6;--mute:#9aa8c0;--line:#22304a;--teal:#67e8f9;--red:#0e7490;--navy:#0d1526;--tint:#10303c;--or:#e8a33d;--gr:#4ade80;--bl:#4f8cff;--vi:#8b5cf6;--sh:0 18px 40px -26px #000;color-scheme:dark}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.7 'Source Serif 4',Georgia,serif;transition:background .4s,color .4s}
-h1,h2,h3,.tag,.f,.btn,nav,.st,.big,.sub,.lg,.pt,.chips,summary{font-family:'Manrope',system-ui,sans-serif}
-h1,h2,h3{margin:0;letter-spacing:-.02em}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font:inherit;cursor:pointer;color:inherit}
-:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+:root{--bg:#080d18;--card:#111a2c;--ink:#eef2fa;--mute:#b0bcd1;--line:#2a3a58;--teal:#67e8f9;--red:#0e7490;--navy:#0d1526;--tint:#10303c;--or:#e8a33d;--gr:#4ade80;--bl:#4f8cff;--sh:0 18px 40px -26px #000;
+--fs:clamp(16.5px,.3vw + 15.6px,19px);--sm:16px;--h1:clamp(34px,5vw,56px);--h2:clamp(25px,2.4vw + 14px,36px);--h3:clamp(20px,.5vw + 17px,23px);--sub:clamp(22px,.6vw + 18px,27px);
+--sans:'Manrope',system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:auto}
+body{margin:0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font:400 var(--fs)/1.65 'Source Serif 4',Georgia,serif}
+h1,h2,h3{font-family:var(--sans);margin:0;letter-spacing:-.02em;line-height:1.25}h1:focus{outline:none}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font:inherit;cursor:pointer;color:inherit}p{margin:0}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
 #prog{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--bl),var(--gr),var(--or),var(--red));transform:scaleX(0);transform-origin:0;z-index:90}
-.app{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
-.side{position:sticky;top:0;height:100vh;overflow:auto;background:var(--navy);color:#fff;padding:30px 22px 22px;display:flex;flex-direction:column;gap:22px;z-index:50}
-.av{width:132px;height:132px;border-radius:50%;padding:4px;background:conic-gradient(var(--bl),var(--gr),var(--or),var(--red),var(--bl));animation:sp 8s linear infinite;margin-bottom:16px}
-.av img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 18%;border:4px solid var(--navy);animation:sp 8s linear infinite reverse}
-@keyframes sp{to{transform:rotate(1turn)}}
-.side h1{font-size:23px;line-height:1.15;font-weight:800}.rl{font-size:14px;color:#aab4c8;margin:10px 0 0;line-height:1.5;font-family:'Manrope',system-ui,sans-serif}.rl b{color:#fff}
-.caret{display:inline-block;width:2px;height:1em;background:var(--red);margin-left:3px;vertical-align:-2px;animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
-.links{display:flex;flex-direction:column;gap:2px;position:relative}
-.links a{font-size:14px;font-weight:600;color:#aab4c8;padding:7px 14px;border-left:2px solid #ffffff1c;transition:.25s}
-.links a:hover{color:#fff}.links a.on{color:#fff;border-color:var(--red);background:linear-gradient(90deg,#0e749040,transparent)}
-.sb{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.nb{width:40px;height:40px;border-radius:50%;border:1px solid #ffffff30;background:none;color:#fff}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:40px;font-weight:700;font-size:13.5px;border:1px solid #ffffff3a;color:#fff;transition:transform .2s,background .3s}
-.btn:hover{background:#ffffff1c}.btn.p{background:var(--red);border-color:var(--red)}.btn.p:hover{background:#0f8aa8}
-.content{min-width:0;padding:26px clamp(18px,3.5vw,44px) 40px;max-width:1180px}
-.wrap{max-width:none;padding:0;margin:0}
-.hb{position:relative;border-radius:22px;overflow:hidden;background:var(--navy);color:#fff;min-height:430px;display:flex;align-items:flex-end;margin-bottom:18px}
-#sim{position:absolute;inset:0;width:100%;height:100%}
-.hb:before{content:'';position:absolute;inset:0;background:linear-gradient(95deg,#101626f2 15%,#101626a0 55%,transparent);z-index:1}
-.hbt{position:relative;z-index:2;padding:40px clamp(22px,4vw,48px);max-width:720px;pointer-events:none}.hbt a{pointer-events:auto}
-.hbt h2{font-size:clamp(32px,4.3vw,56px);line-height:1.05;font-weight:800}
-.hbt h2 span{display:block;overflow:hidden;padding-bottom:.08em}.hbt h2 b{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.14s + .15s)}
-@keyframes up{to{transform:none}}
-.hbt p{color:#b6c0d4;margin:16px 0 0;max-width:520px;font-size:17px}
-.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-.lg{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;font-size:12px;color:#aab4c8}.lg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
-.st{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;border-top:3px solid var(--ac,var(--red))}
-.st:nth-child(4n+2){--ac:var(--or)}.st:nth-child(4n+3){--ac:var(--gr)}.st:nth-child(4n+4){--ac:var(--bl)}
-.st strong{font:800 32px/1.1 'Manrope',system-ui,sans-serif;display:block;color:var(--ink)}.st span{font-size:12.5px;color:var(--mute);font-family:'Manrope',system-ui,sans-serif}
-.prof{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.prof a{border:1px solid var(--line);background:var(--card);padding:7px 15px;border-radius:30px;font:600 13px 'Manrope',system-ui,sans-serif;transition:.25s}.prof a:hover{border-color:var(--red);color:var(--teal)}
-section{padding-top:48px}
-.sh{margin-bottom:22px}
-.sh h2{font-size:clamp(18px,2.2vw,24px);font-weight:800;line-height:1.25;color:#fff;background:var(--red);padding:11px 20px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:14px}
-.sh h2:after{content:'';width:76px;height:10px;flex:none;border-radius:5px;background:linear-gradient(90deg,#2f6fb5 20%,#5aa469 20% 40%,#2b3349 40% 60%,#e08a2d 60% 80%,#fff 80%)}
-.sh p{color:var(--mute);margin:10px 4px 0;font-size:16px}
-.g{display:grid;gap:16px}.c3{grid-template-columns:repeat(3,1fr)}.c2{grid-template-columns:repeat(2,1fr)}
-.g>.card:nth-child(4n+1),.tl .card:nth-child(4n+1){--ac:var(--red)}.g>.card:nth-child(4n+2),.tl .card:nth-child(4n+2){--ac:var(--or)}.g>.card:nth-child(4n+3),.tl .card:nth-child(4n+3){--ac:var(--gr)}.g>.card:nth-child(4n+4),.tl .card:nth-child(4n+4){--ac:var(--bl)}
-.card{position:relative;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ac,var(--line));border-radius:12px;padding:22px 24px;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.card:before{content:'';position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx,50%) var(--my,-50%),color-mix(in srgb,var(--ac,var(--red)) 14%,transparent),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
-.card:hover{transform:translateY(-3px);box-shadow:var(--sh)}.card:hover:before{opacity:1}
-.card h3{font-size:17.5px;margin:8px 0 8px;line-height:1.3;font-weight:800}.card p{margin:0;color:var(--mute);font-size:15.5px;line-height:1.6}
-.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:var(--tint);padding:3px 11px;border-radius:20px}
-.about{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.facts div{padding:11px 0;border-bottom:1px solid var(--line)}.facts div:last-child{border:0}.facts b{display:block;font:700 13px 'Manrope',system-ui,sans-serif}.facts span{font-size:15px;color:var(--mute)}
-.col2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.sub{font-weight:800;font-size:15px;margin:34px 0 14px;border-left:4px solid var(--red);padding-left:11px}
-.chips{display:flex;flex-wrap:wrap;gap:7px}.chips span{background:var(--tint);color:var(--teal);font-size:13px;font-weight:600;padding:4px 12px;border-radius:20px}
-.tl{position:relative;display:grid;gap:14px;padding-left:26px}
-.tl:before,.tl:after{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:var(--line)}.tl:after{background:var(--red);bottom:auto;height:calc((100% - 16px)*var(--p,0))}
-.tl .card{overflow:visible}.tl .card:after{content:'';position:absolute;left:-27px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--ac,var(--red))}
-.card ul{margin:10px 0 0;padding-left:18px;color:var(--mute);font-size:15px}
-.bar{height:8px;border-radius:8px;background:var(--line);margin-top:12px;overflow:hidden}.bar i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--bl),var(--gr),var(--or),var(--red));transition:width 1.5s cubic-bezier(.2,.8,.2,1) .2s}.v .bar i{width:var(--w)}
-.big{font-weight:800;font-size:28px;color:var(--ink);line-height:1}.big small{font-size:14px;color:var(--mute);font-weight:600}
-.fl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.f{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:7px 16px;font-size:13px;font-weight:700;color:var(--mute);transition:.25s}.f.on{background:var(--red);color:#fff;border-color:var(--red)}
-.q{width:100%;max-width:400px;padding:11px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:15px;margin-bottom:16px}
-.pub{margin-bottom:12px;animation:in .5s both;animation-delay:calc(var(--k)*50ms)}.pub h3{font-size:16px}.pub p{font-size:13.5px}
-@keyframes in{from{opacity:0;transform:translateY(14px)}}
-.pt{display:flex;justify-content:space-between;font-size:12px;color:var(--mute)}.pt b{color:var(--teal)}
-.lk{display:inline-block;margin-top:10px;font:700 13px 'Manrope',system-ui,sans-serif;color:var(--teal)}.pub a{display:inline-block;margin-top:8px;font:700 13px 'Manrope',system-ui,sans-serif;color:var(--teal)}
-#more{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:10px 22px;font:700 14px 'Manrope',system-ui,sans-serif}
-details.card{cursor:pointer}details summary{list-style:none;display:flex;justify-content:space-between;gap:12px}details summary::-webkit-details-marker{display:none}
-details summary:after{content:'+';font:600 22px/1 'Manrope',system-ui,sans-serif;color:var(--teal);transition:transform .3s}details[open] summary:after{transform:rotate(45deg)}details .more{margin-top:12px;animation:in .4s both}details .more p{margin-bottom:10px}
-.soon{border-style:dashed;background:transparent}.soon:hover{transform:none;box-shadow:none}.soon h3{color:var(--mute)}
-.mq{overflow:hidden;margin-top:22px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}.mq div{display:flex;gap:10px;width:max-content;animation:mq 40s linear infinite}.mq:hover div{animation-play-state:paused}
-.mq span{white-space:nowrap;border:1px solid var(--line);background:var(--card);padding:7px 18px;border-radius:30px;font:600 14px 'Manrope',system-ui,sans-serif}@keyframes mq{to{transform:translateX(-50%)}}
-.gal{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}.gal figure{margin:0;padding:0;cursor:zoom-in}.gal img{width:100%;height:480px;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}.gal figure:hover img{transform:scale(1.04)}.gal figcaption{padding:12px 18px;font-size:14px;color:var(--mute)}
-.ct{margin-top:56px;background:var(--navy);color:#fff;border-radius:22px;padding:56px clamp(22px,4vw,48px) 24px}
-.ct h2{font:800 clamp(30px,4.5vw,52px)/1.08 'Manrope',system-ui,sans-serif}.ct p{color:#aab4c8;max-width:520px;margin:14px 0 6px}.ct .acts{margin-top:20px}
-.ct footer{margin-top:46px;padding-top:18px;border-top:1px solid #ffffff1a;font:13px 'Manrope',system-ui,sans-serif;color:#8591a8;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-#lb{position:fixed;inset:0;background:#000d;z-index:95;display:none;place-items:center;padding:24px;cursor:zoom-out}#lb.o{display:grid;animation:in .3s}#lb img{max-height:92vh;border-radius:12px}
-#top{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:0;background:var(--red);color:#fff;font-size:18px;opacity:0;transform:translateY(20px);transition:.3s;z-index:40}#top.s{opacity:1;transform:none}
-.rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.v{opacity:1;transform:none}
-@media(max-width:980px){.app{display:block}.side{position:sticky;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 14px}
-.side>div:first-child{display:flex;align-items:center;gap:12px}.av{width:44px;height:44px;padding:2px;margin:0}.av img{border-width:2px}.side h1{font-size:16px}.rl,.sb .btn{display:none}.sb{margin:0 0 0 auto}
-.links{flex-direction:row;overflow-x:auto;width:100%;order:3;scrollbar-width:none}.links a{white-space:nowrap;border-left:0;border-bottom:2px solid transparent;padding:6px 12px}.links a.on{border-color:var(--red);background:none}
-.about,.col2,.gal,.c2,.c3{grid-template-columns:1fr}.hb{min-height:380px}.gal img{height:400px}}
-@media(prefers-reduced-motion:reduce){*,:before,:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hbt h2 b{transform:none}html{scroll-behavior:auto}}
-.bd{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font:800 11px/1 'Manrope',system-ui,sans-serif;flex:none;letter-spacing:-.02em}.bd svg{width:16px;height:16px;fill:currentColor}
-.prof a,.prof span.off{display:inline-flex;align-items:center;gap:9px;padding:5px 15px 5px 6px}.prof span.off{border:1px dashed var(--line);border-radius:30px;font:600 13px 'Manrope',system-ui,sans-serif;color:var(--mute)}
-.ic{display:flex;gap:8px;flex-wrap:wrap}.ic a{transition:transform .25s}.ic a:hover{transform:translateY(-3px) scale(1.1)}.ic .bd{width:36px;height:36px}
-.ct .acts .btn{padding:7px 18px 7px 8px}.ct .acts .btn.p{padding:7px 18px 7px 8px}
-@media(max-width:980px){.ic{display:none}}
-.rl{margin-top:12px}.rl b{display:block;color:#fff;font-size:15px;margin-bottom:2px}
-.hc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.hc span{border:1px solid #ffffff38;background:#ffffff14;backdrop-filter:blur(4px);padding:5px 14px;border-radius:30px;font:600 13px 'Manrope',system-ui,sans-serif;color:#e8eefc}
-.hbt{max-width:660px}.hbt h2{font-size:clamp(30px,3.9vw,52px)}.hp{position:absolute;right:46px;bottom:0;width:232px;margin:0;z-index:2}
-.hp:before{content:'';position:absolute;inset:36px -30px 0 30px;background:linear-gradient(160deg,var(--red),var(--or));border-radius:999px 999px 0 0;transform:rotate(5deg);transform-origin:bottom;animation:wob 6s ease-in-out infinite}
-.hp img{position:relative;width:100%;aspect-ratio:3/3.9;object-fit:cover;object-position:50% 12%;border-radius:999px 999px 0 0;box-shadow:0 0 0 5px #101626}
-@keyframes wob{50%{transform:rotate(-3deg)}}
-@media(max-width:1100px){.hb{flex-direction:column;align-items:flex-start;justify-content:flex-end}.hp{position:relative;right:auto;bottom:auto;width:150px;margin:30px 0 0 30px;order:-1}.hbt{padding-top:24px}.hb:before{background:linear-gradient(180deg,#101626cc,#101626f2)}}
-@media(prefers-reduced-motion:reduce){.hp:before{animation:none!important}}
-.ul{position:absolute;top:16px;right:16px;width:72px;height:72px;object-fit:contain;transition:transform .5s}.card:hover .ul{transform:rotate(-6deg) scale(1.08)}#edu .card h3{padding-right:76px}
-.pub h3 a.tt{color:var(--ink);background:linear-gradient(var(--teal),var(--teal)) 0 100%/0 2px no-repeat;transition:background-size .35s,color .25s}.pub h3 a.tt:hover{color:var(--teal);background-size:100% 2px}.pub p b{color:var(--ink)}
 
-.content{max-width:1180px;margin:0 auto;padding:26px clamp(18px,3.5vw,44px) 40px}
-.tn{position:sticky;top:0;z-index:80;background:rgba(10,15,28,.85);backdrop-filter:blur(16px);border-bottom:1px solid #ffffff14}
-.tni{max-width:1280px;margin:auto;padding:9px 20px;display:flex;align-items:center;justify-content:center;gap:16px}
-.brand{display:flex;align-items:center;gap:11px;color:#fff;flex:none}.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 15%;box-shadow:0 0 0 2px #101626,0 0 0 4px var(--or)}
-.brand b{display:block;font:800 13.5px/1.15 'Manrope',system-ui,sans-serif}.brand small{font:600 10.5px 'Manrope',system-ui,sans-serif;color:#f0b35a}
-.tn .links{flex-direction:row;gap:2px;border:1px solid #ffffff1a;border-radius:16px;padding:4px;background:#ffffff0a;overflow-x:auto;scrollbar-width:none;width:auto;position:static}
-.tn .links a{border:0;border-radius:11px;padding:8px 12px;font-size:13px;white-space:nowrap;background:none}
-.tn .links a.on{background:var(--red);color:#fff;box-shadow:0 6px 18px -8px var(--red)}
-.nb{flex:none;border-radius:12px}
+/* navigation */
+.tn{position:sticky;top:0;z-index:80;background:rgba(10,15,28,.94);backdrop-filter:blur(16px);border-bottom:1px solid #ffffff1c}
+.tni{max-width:1360px;margin:auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;flex:none}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 15%;box-shadow:0 0 0 2px #101626,0 0 0 4px var(--or)}
+.brand b{font:800 16px/1.2 var(--sans)}
+.links{display:flex;gap:2px;font-family:var(--sans)}
+.links a{font-size:16px;font-weight:600;color:#c3cde0;padding:9px 12px;border-radius:11px;white-space:nowrap;transition:background .2s,color .2s}
+.links a:hover{color:#fff;background:#ffffff14}
+.links a.on{background:var(--red);color:#fff;box-shadow:0 6px 18px -8px var(--red)}
+#menu{display:none;align-items:center;gap:8px;border:1px solid #ffffff33;background:#ffffff0d;color:#fff;border-radius:12px;padding:9px 16px;font:700 16px var(--sans);min-height:44px}
+@media(min-width:1500px){.links a{font-size:17px}}
+@media(max-width:1239px){
+ #menu{display:inline-flex}
+ .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:4px;background:#0a0f1c;border-bottom:1px solid #ffffff1c;padding:10px 16px 16px;max-height:calc(100dvh - 70px);overflow:auto;box-shadow:0 24px 40px -20px #000}
+ .links.o{display:flex}.links a{font-size:17px;padding:13px 16px}
+}
+
+/* pages */
+main{flex:1;display:flex;flex-direction:column}
+.page{flex:1;display:flex;flex-direction:column}.page[hidden]{display:none}
+.pi{width:100%;max-width:1120px;margin:0 auto;padding:clamp(28px,4vw,56px) clamp(18px,4vw,40px) clamp(48px,6vw,80px)}
+.sh{margin-bottom:clamp(22px,3vw,34px)}
+.sh h1{font-size:var(--h2);font-weight:800;color:#fff;background:var(--red);padding:12px 22px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.sh h1:after{content:'';width:76px;height:10px;flex:none;border-radius:5px;background:linear-gradient(90deg,#2f6fb5 20%,#5aa469 20% 40%,#2b3349 40% 60%,#e08a2d 60% 80%,#fff 80%)}
+.sh p{color:var(--mute);margin:12px 4px 0;max-width:75ch}
+.lead{color:var(--mute);max-width:75ch;margin-bottom:22px}
+.sub{font-size:var(--sub);font-weight:800;margin:clamp(34px,4vw,48px) 0 16px;border-left:4px solid var(--red);padding-left:14px}
+.sub:first-child{margin-top:0}
+.sl{font-size:19px;font-weight:800;margin:24px 0 10px;color:#fff}.sl:first-of-type{margin-top:16px}
+footer.site{border-top:1px solid #ffffff1a;padding:20px;text-align:center;font:var(--sm)/1.5 var(--sans);color:#9aa8c0}
+
+/* home */
 .hero{position:relative;background:radial-gradient(70% 90% at 15% 40%,#1b2c50 0,#101626 70%);color:#fff;overflow:hidden}
 .hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#101626b0,#101626ee 55%);z-index:1}
-.hw{position:relative;z-index:2;max-width:1240px;margin:auto;padding:70px 28px 76px;display:grid;grid-template-columns:.78fr 1.4fr;gap:56px;align-items:center}
-.pf{display:grid;place-items:center}.orb{position:relative;width:min(330px,100%);aspect-ratio:1}
+#sim{position:absolute;inset:0;width:100%;height:100%}
+.hw{position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;padding:clamp(32px,6vw,76px) clamp(18px,4vw,40px) clamp(48px,6vw,80px);display:grid;grid-template-columns:minmax(240px,.75fr) 1.4fr;gap:clamp(32px,5vw,64px);align-items:start}
+.orb{position:relative;width:min(330px,100%);aspect-ratio:1;margin:0 auto}
 .orb:before{content:'';position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(var(--bl),var(--gr),var(--or),var(--red),var(--bl));-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));animation:sp 10s linear infinite}
+@keyframes sp{to{transform:rotate(1turn)}}
 .orb img{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 14%;border:12px solid #101626;box-shadow:0 0 70px #2f6fb544}
 .orb i{position:absolute;inset:-30px;animation:sp 14s linear infinite;pointer-events:none}.orb i:before{content:'';position:absolute;top:0;left:50%;width:10px;height:10px;border-radius:50%;background:var(--or);box-shadow:0 0 16px var(--or)}
-.ht{border-left:3px solid;border-image:linear-gradient(180deg,var(--bl),var(--gr),var(--or),var(--red)) 1;padding-left:36px}
-.eb{display:block;font:800 12px 'Manrope',system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#67e8f9;margin-bottom:12px}
-.ht h1{font-size:clamp(38px,5.2vw,70px);line-height:1.02;font-weight:800;letter-spacing:-.03em}
+.ht{border-left:3px solid;border-image:linear-gradient(180deg,var(--bl),var(--gr),var(--or),var(--red)) 1;padding-left:clamp(20px,3vw,36px)}
+.eb{display:block;font:800 16px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#67e8f9;margin-bottom:14px}
+.ht h1{font-size:var(--h1);line-height:1.05;font-weight:800;letter-spacing:-.03em}
 .ht h1 span{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}.ht h1 b{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.12s + .1s)}
-.role2{font:700 clamp(15px,1.6vw,19px)/1.4 'Manrope',system-ui,sans-serif;color:#f0b35a;margin:14px 0 20px}
-.ht p{color:#c5cee0;font-size:15.5px;line-height:1.75;margin:0 0 14px;text-align:justify;hyphens:auto}.ht p b{color:#fff}
-.hc{margin:8px 0 4px}.bi{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--bl),var(--red));font-size:13px;color:#fff;flex:none}
-.ht .btn{border-radius:12px;background:#ffffff0d;padding:8px 18px 8px 9px}.ht .btn:hover{background:#ffffff1c;border-color:#ffffff66}
-.ic{display:flex!important;margin-top:20px}
-.gt{position:fixed;left:18px;bottom:18px;z-index:70;display:flex;align-items:center;gap:10px;background:#101626;color:#fff;border:1px solid #ffffff2a;padding:7px 18px 7px 7px;border-radius:40px;font:700 13.5px 'Manrope',system-ui,sans-serif;box-shadow:0 14px 30px -12px #000a;transition:transform .25s}.gt:hover{transform:translateY(-3px)}.gt .bi{width:32px;height:32px;border-radius:50%}
-@media(max-width:980px){.tni{flex-wrap:wrap;gap:8px 12px;justify-content:space-between}.tn .links{order:3;width:100%}.hw{grid-template-columns:1fr;padding:44px 20px 56px;gap:36px}.orb{width:220px}.ht{padding-left:20px}.ht p{text-align:left}.hero:before{background:#101626d9}.brand small{display:none}}
-@media(prefers-reduced-motion:reduce){.orb:before,.orb i{animation:none!important}.ht h1 b{transform:none}}
-.tn .links a{padding:8px 10px;font-size:12.5px}@media(max-width:1500px){.brand small{display:none}}
+@keyframes up{to{transform:none}}
+.role2{font:700 clamp(18px,1.2vw + 12px,24px)/1.4 var(--sans);color:#f0b35a;margin:16px 0 24px}
+.ht p{color:#d3dbea;margin:0 0 16px;max-width:68ch}.ht p b{color:#fff}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:12px;font:700 17px var(--sans);border:1px solid #ffffff4a;color:#fff;background:#ffffff0d;transition:transform .2s,background .3s;min-height:48px}
+.btn:hover{background:#ffffff1f}.btn.p{background:var(--red);border-color:var(--red)}.btn.p:hover{background:#0f8aa8}
 
-.bd{width:40px;height:40px;font-size:14px}.bd svg{width:22px;height:22px}
-.ic{gap:14px;margin-top:26px}.ic .bd{width:60px;height:60px;font-size:19px;box-shadow:0 10px 24px -10px #000a}.ic .bd svg{width:30px;height:30px}.ic a:hover{transform:translateY(-4px) scale(1.08)}
-.prof a,.prof span.off{padding:7px 20px 7px 7px;font-size:14.5px;gap:11px}
-.ct .acts{gap:12px}.ct .acts .btn{padding:8px 22px 8px 8px;font-size:15px}.ct .acts .btn .bd{width:48px;height:48px;font-size:16px}.ct .acts .btn .bd svg{width:24px;height:24px}
-.card,.st,.f,.q,#more{box-shadow:none}.st strong{color:var(--ink)}
-.tag{background:var(--tint)}
-@media(max-width:980px){.ic .bd{width:52px;height:52px}}
+/* cards & grids */
+.g{display:grid;gap:18px}.c2{grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr))}.c3{grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+.g>.card:nth-child(4n+1),.tl .card:nth-child(4n+1){--ac:var(--red)}.g>.card:nth-child(4n+2),.tl .card:nth-child(4n+2){--ac:var(--or)}.g>.card:nth-child(4n+3),.tl .card:nth-child(4n+3){--ac:var(--gr)}.g>.card:nth-child(4n+4),.tl .card:nth-child(4n+4){--ac:var(--bl)}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ac,var(--line));border-radius:14px;padding:clamp(20px,2.4vw,28px);overflow:hidden;transition:transform .3s,box-shadow .3s}
+.card:before{content:'';position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx,50%) var(--my,-50%),color-mix(in srgb,var(--ac,var(--red)) 14%,transparent),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh)}.card:hover:before{opacity:1}
+.card h3{font-size:var(--h3);margin:10px 0 8px;font-weight:800}.card p{color:var(--mute)}.card h3:first-child{margin-top:0}
+.card ul{margin:12px 0 0;padding-left:22px;color:var(--mute)}.card li{margin-bottom:4px}
+.tag{display:inline-block;font:700 var(--sm)/1.4 var(--sans);color:var(--teal);background:var(--tint);padding:3px 13px;border-radius:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{background:var(--tint);color:var(--teal);font:600 var(--sm)/1.4 var(--sans);padding:5px 14px;border-radius:20px}
+.tl{position:relative;display:grid;gap:16px;padding-left:28px}
+.tl:before,.tl:after{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:var(--line)}.tl:after{background:var(--red);bottom:auto;height:calc((100% - 16px)*var(--p,0))}
+.tl .card{overflow:visible}.tl .card:after{content:'';position:absolute;left:-29px;top:28px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--ac,var(--red))}
+.bar{height:8px;border-radius:8px;background:var(--line);margin-top:14px;overflow:hidden}.bar i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--bl),var(--gr),var(--or),var(--red));transition:width 1.5s cubic-bezier(.2,.8,.2,1) .2s}.v .bar i{width:var(--w)}
+.big{font:800 32px/1.1 var(--sans);color:var(--ink)}.big small{font-size:var(--sm);color:var(--mute);font-weight:600}
+.ul{position:absolute;top:18px;right:18px;width:72px;height:72px;object-fit:contain;transition:transform .5s}.card:hover .ul{transform:rotate(-6deg) scale(1.08)}.edu h3{padding-right:80px}
+.soon{border-style:dashed;background:transparent}.soon:hover{transform:none;box-shadow:none}.soon h3{color:var(--mute)}
+.lk,.pub a.doi{display:inline-block;margin-top:12px;font:700 17px var(--sans);color:var(--teal)}
+.lk:hover,.pub a.doi:hover{text-decoration:underline}
+
+/* filters, search, publications */
+.fl{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.f{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:9px 20px;font:700 var(--sm) var(--sans);color:var(--mute);transition:.25s;min-height:44px}.f:hover{color:#fff}.f.on{background:var(--red);color:#fff;border-color:var(--red)}
+.q{width:100%;max-width:480px;padding:12px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:17px;margin-bottom:20px;min-height:48px}
+.pub{margin-bottom:14px;animation:in .5s both;animation-delay:calc(var(--k)*50ms)}.pub h3{font-size:var(--h3)}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+.pt{display:flex;justify-content:space-between;gap:12px;font:var(--sm) var(--sans);color:var(--mute);margin-bottom:6px}.pt b{color:var(--teal)}
+.pub h3 a.tt{color:var(--ink);background:linear-gradient(var(--teal),var(--teal)) 0 100%/0 2px no-repeat;transition:background-size .35s,color .25s}.pub h3 a.tt:hover{color:var(--teal);background-size:100% 2px}.pub p{margin-top:8px}.pub p b{color:var(--ink)}
+#more{border:1px solid var(--line);background:var(--card);border-radius:30px;padding:12px 26px;font:700 17px var(--sans);min-height:48px}
+.note{font-size:var(--sm);color:var(--mute);margin-top:20px;max-width:75ch}
+details.card{cursor:pointer}details summary{list-style:none;display:flex;justify-content:space-between;gap:12px}details summary::-webkit-details-marker{display:none}
+details summary:after{content:'+';font:600 28px/1 var(--sans);color:var(--teal);transition:transform .3s}details[open] summary:after{transform:rotate(45deg)}
+details .more{margin-top:14px;animation:in .4s both}details .more p{margin-bottom:12px}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:18px;align-items:start}
+.gal figure{margin:0;padding:0;cursor:zoom-in}.gal img{width:100%;height:clamp(280px,34vw,460px);object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{padding:14px 18px;color:var(--mute);font-size:var(--sm);line-height:1.5}
+#lb{position:fixed;inset:0;background:#000d;z-index:95;display:none;place-items:center;padding:24px;cursor:zoom-out}#lb.o{display:grid;animation:in .3s}#lb img{max-height:92vh;border-radius:12px}
+
+/* contact */
+.ct{background:var(--navy);color:#fff;border-radius:22px;padding:clamp(28px,5vw,56px)}
+.ct h2{font-size:var(--h2);font-weight:800;line-height:1.12}.ct>p{color:#c3cde0;max-width:60ch;margin-top:12px}
+.dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin:28px 0 0}
+.dl div{display:flex;align-items:center;gap:14px;border:1px solid #ffffff22;background:#ffffff0a;border-radius:14px;padding:14px 18px;min-width:0}
+.dl small{display:block;font:700 var(--sm) var(--sans);color:#9fb0cc}.dl a,.dl span.v2{font:700 clamp(17px,.4vw + 15px,20px)/1.35 var(--sans);overflow-wrap:anywhere}.dl a:hover{color:var(--teal)}
+.bd{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;color:#fff;font:800 16px/1 var(--sans);flex:none}.bd svg{width:24px;height:24px;fill:currentColor}
+.ct .sl{color:#fff;margin:30px 0 12px}
+.ct .acts{margin-top:0}.ct .btn{padding:8px 22px 8px 8px}
+.collab{margin-top:20px}.collab p{max-width:75ch;margin-top:8px}
+
+#top{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;border:0;background:var(--red);color:#fff;font-size:20px;opacity:0;transform:translateY(20px);transition:.3s;z-index:40;pointer-events:none}#top.s{opacity:1;transform:none;pointer-events:auto}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.v{opacity:1;transform:none}
+
+@media(max-width:900px){.hw{grid-template-columns:1fr}.orb{width:min(240px,70%)}.hero:before{background:#101626d9}}
+@media(max-width:600px){.sh h1:after{display:none}.pt{flex-direction:column;gap:0}.ul{width:56px;height:56px}.edu h3{padding-right:64px}}
+@media(prefers-reduced-motion:reduce){*,:before,:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.ht h1 b{transform:none}}
 </style></head><body>
 <div id="prog"></div>
-<nav class="tn"><div class="tni"><a class="brand" href="#home"><img src="portrait.jpg" alt=""><span><b>Md. Ismile Hossain<br>Bhuiyan</b><small>BSc. Vet. Sci. &amp; A.H. · MS Animal Sci.</small></span></a>
-<div class="links" id="links" aria-label="Main"><a href="#home">Home</a><a href="#research">Research</a><a href="#scholarly">Publications</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#presentations">Presentations</a><a href="#awards">Awards</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div>
-<button id="menu" hidden></button></div></nav>
-<header class="hero" id="home"><canvas id="sim" aria-hidden="true"></canvas><div class="hw">
+<nav class="tn" aria-label="Main"><div class="tni">
+<a class="brand" href="#/home"><img src="portrait.jpg" alt=""><b>Md. Ismile Hossain<br>Bhuiyan</b></a>
+<button id="menu" aria-expanded="false" aria-controls="links">☰ Menu</button>
+<div class="links" id="links">
+<a data-k="home" href="#/home">Home</a><a data-k="research" href="#/research">Research</a><a data-k="publications" href="#/publications">Publications</a><a data-k="education" href="#/education">Education</a><a data-k="experience" href="#/experience">Experience</a><a data-k="skills" href="#/skills">Skills</a><a data-k="presentations" href="#/presentations">Presentations</a><a data-k="awards" href="#/awards">Awards</a><a data-k="gallery" href="#/gallery">Gallery</a><a data-k="contact" href="#/contact">Contact</a>
+</div></div></nav>
+
+<main>
+<!-- HOME -->
+<section class="page hero" id="p-home" data-title="Md. Ismile Hossain Bhuiyan — Veterinary Researcher"><canvas id="sim" aria-hidden="true"></canvas><div class="hw">
 <div class="pf"><div class="orb"><i></i><img src="portrait-labcoat.jpg" alt="Md. Ismile Hossain Bhuiyan in a laboratory coat"></div></div>
 <div class="ht"><span class="eb">Academic &amp; Research Portfolio</span>
 <h1 aria-label="Md. Ismile Hossain Bhuiyan"><span><b style="--i:0">Md. Ismile</b></span> <span><b style="--i:1">Hossain</b></span> <span><b style="--i:2">Bhuiyan</b></span></h1>
 <div class="role2">Veterinary &amp; Animal Science Researcher | Advancing Animal Health &amp; Food Safety</div>
 <p>I am Md Ismile Hossain Bhuiyan, with a <b>B.Sc. in Veterinary Science and Animal Husbandry</b> and an <b>M.S. in Animal Science</b> from Sher-e-Bangla Agricultural University, Bangladesh.</p>
-<p>My research interests connect animal science and microbiology, particularly how <b>animal nutrition, gut health, and host–microbe interactions</b> influence productive performance, meat quality, and disease susceptibility. I am also interested in <b>antimicrobial resistance</b>, <b>foodborne pathogens</b>, and <b>infectious and zoonotic diseases</b>, with a broader focus on the connections between animal health, food safety, and public health through <b>One Health</b>.</p>
-<p>My research experience spans <b>meat quality, epidemiology, and infectious disease research</b>, including <b>systematic reviews and meta-analyses</b>. I have practical experience in microbiological and molecular laboratory techniques, epidemiological investigations, and data analysis using <b>R and SPSS</b>. My interests also extend to <b>microbial genomics and bioinformatics</b> as tools for understanding microbial communities, pathogen characteristics, and their implications for animal production and health.</p>
 <p>My long-term goal is to pursue <b>advanced interdisciplinary research</b> that integrates animal science with microbiology to improve animal nutrition and production, support gut health, and enhance the quality and safety of animal-derived foods while addressing challenges in antimicrobial resistance and disease prevention.</p>
-<div class="hc"><span>Meat quality</span><span>Animal nutrition</span><span>Infectious disease</span><span>Epidemiology</span><span>One Health</span></div>
-<div class="ic" id="ic"></div></div></div></header>
-<a class="gt" href="#contact"><span class="bi">✉</span>Get in Touch</a>
-<div class="content"><main>
-<div class="wrap stats"><div class="st"><strong data-n="3.87" data-d="2">0</strong><span>MS CGPA · Animal Science</span></div><div class="st"><strong data-n="1" data-s="st">0</strong><span>Rank in MS programme</span></div><div class="st"><strong id="pc" data-n="19">0</strong><span>Published works · 19 articles + 1 book chapter</span></div><div class="st"><strong id="rc" data-n="9">0</strong><span>Manuscripts under review</span></div><div class="st"><strong data-n="5">0</strong><span>Research projects</span></div><div class="st"><strong data-n="3">0</strong><span>Posters &amp; talks</span></div></div>
-<div class="wrap prof rv" id="prof"></div>
+<div class="acts"><a class="btn p" href="#/research">Explore my research</a><a class="btn" href="#/publications">View publications</a></div>
+</div></div></section>
 
-
-
-<section id="research"><div class="wrap"><div class="sh rv"><h2>Research interests &amp; projects</h2><p>Interests across animal science, microbiology and One Health; tap a project to read more.</p></div><div class="card rv" style="margin-top:18px"><h3>Research interests</h3><div class="sub" style="margin:18px 0 10px;font-size:13.5px">Meat science &amp; animal nutrition</div><div class="chips"><span>Meat quality &amp; production</span><span>Meat nutritional composition</span><span>Poultry &amp; broiler nutrition</span><span>L-citrulline &amp; feed supplementation</span><span>Pre-slaughter stress</span><span>Beef fattening management</span><span>Crossbred chicken production traits</span></div><div class="sub" style="margin:18px 0 10px;font-size:13.5px">Infectious disease &amp; epidemiology</div><div class="chips"><span>Veterinary epidemiology</span><span>Lumpy skin disease</span><span>Foot and mouth disease</span><span>Vector- &amp; tick-borne diseases</span><span>Mastitis &amp; Staphylococcus aureus</span><span>Zoonoses</span><span>Bovine spongiform encephalopathy</span></div><div class="sub" style="margin:18px 0 10px;font-size:13.5px">One Health, food safety &amp; resistance</div><div class="chips"><span>One Health</span><span>Antimicrobial resistance</span><span>Food safety &amp; heavy metals</span><span>Food-borne diseases</span><span>Biosecurity practices</span><span>Farmer knowledge, attitudes &amp; practices</span></div><div class="sub" style="margin:18px 0 10px;font-size:13.5px">Data-driven &amp; spatial research</div><div class="chips"><span>Spatiotemporal analysis</span><span>Climate &amp; meteorological determinants</span><span>Time-series modelling</span><span>Machine learning prediction</span><span>Systematic reviews &amp; meta-analysis</span><span>Bioinformatics</span></div></div><div class="card rv" style="margin-top:18px"><h3>Interdisciplinary &amp; program-flexible</h3><p style="margin-top:8px">My training lets me contribute across animal science, veterinary epidemiology, meat science, microbiology, public health and data-driven research, and adapt to different graduate research environments.</p></div><div class="sub">Research projects</div>
+<!-- RESEARCH -->
+<section class="page" id="p-research" data-title="Research" hidden><div class="pi">
+<header class="sh"><h1>Research interests &amp; projects</h1><p>Interests across animal science, microbiology and One Health; tap a project to read more.</p></header>
+<p class="lead">My research interests connect animal science and microbiology, particularly how <b>animal nutrition, gut health, and host–microbe interactions</b> influence productive performance, meat quality, and disease susceptibility. I am also interested in <b>antimicrobial resistance</b>, <b>foodborne pathogens</b>, and <b>infectious and zoonotic diseases</b>, with a broader focus on the connections between animal health, food safety, and public health through <b>One Health</b>.</p>
+<h2 class="sub">Research interests</h2>
+<div class="card rv"><h3 class="sl">Meat science &amp; animal nutrition</h3><div class="chips"><span>Meat quality &amp; production</span><span>Meat nutritional composition</span><span>Poultry &amp; broiler nutrition</span><span>L-citrulline &amp; feed supplementation</span><span>Pre-slaughter stress</span><span>Beef fattening management</span><span>Crossbred chicken production traits</span></div><h3 class="sl">Infectious disease &amp; epidemiology</h3><div class="chips"><span>Veterinary epidemiology</span><span>Lumpy skin disease</span><span>Foot and mouth disease</span><span>Vector- &amp; tick-borne diseases</span><span>Mastitis &amp; Staphylococcus aureus</span><span>Zoonoses</span><span>Bovine spongiform encephalopathy</span></div><h3 class="sl">One Health, food safety &amp; resistance</h3><div class="chips"><span>One Health</span><span>Antimicrobial resistance</span><span>Food safety &amp; heavy metals</span><span>Food-borne diseases</span><span>Biosecurity practices</span><span>Farmer knowledge, attitudes &amp; practices</span></div><h3 class="sl">Data-driven &amp; spatial research</h3><div class="chips"><span>Spatiotemporal analysis</span><span>Climate &amp; meteorological determinants</span><span>Time-series modelling</span><span>Machine learning prediction</span><span>Systematic reviews &amp; meta-analysis</span><span>Bioinformatics</span></div></div>
+<div class="card rv" style="margin-top:18px"><h3>Interdisciplinary &amp; program-flexible</h3><p>My training lets me contribute across animal science, veterinary epidemiology, meat science, microbiology, public health and data-driven research, and adapt to different graduate research environments.</p></div>
+<h2 class="sub">Research projects</h2>
 <div class="fl"><button class="f on" data-p="all">All</button><button class="f" data-p="Published">Published</button><button class="f" data-p="Ongoing">Ongoing</button></div><div class="g c2" id="proj"></div>
-<div class="sub">Research methods &amp; approaches</div><div class="g c2" id="meth"></div></div></section>
+<h2 class="sub">Research methods &amp; approaches</h2>
+<p class="lead">My research experience spans <b>meat quality, epidemiology, and infectious disease research</b>, including <b>systematic reviews and meta-analyses</b>. I have practical experience in microbiological and molecular laboratory techniques, epidemiological investigations, and data analysis using <b>R and SPSS</b>. My interests also extend to <b>microbial genomics and bioinformatics</b> as tools for understanding microbial communities, pathogen characteristics, and their implications for animal production and health.</p>
+<div class="g c2" id="meth"></div>
+</div></section>
 
-<section id="education"><div class="wrap"><div class="sh rv"><h2>Education &amp; academic performance</h2></div>
-<div class="g c2" id="edu"></div>
-<div class="sub">Awards &amp; fellowships in training</div><div class="g c2"><div class="card rv"><span class="tag">2023</span><h3>National Science &amp; Technology Fellowship</h3><p>Ministry of Science and Technology, Bangladesh.</p></div><div class="card rv soon"><span class="tag">Scholarships</span><h3>Board &amp; international scholarships</h3><p>Details coming soon.</p></div></div></div></section>
-
-<section id="experience"><div class="wrap"><div class="sh rv"><h2>Research, internships &amp; leadership</h2></div>
-<div class="g c2"><div><div class="sub" style="margin-top:0">Research experience</div><div class="tl" id="rexp"></div></div><div><div class="sub" style="margin-top:0">Veterinary internship, Jun 2022 – Jan 2023</div><div class="tl" id="intern"></div></div></div>
-<div class="g c2"><div><div class="sub">Teaching &amp; training</div><div class="tl" id="teach"></div></div><div><div class="sub">Leadership &amp; volunteering</div><div class="tl" id="lead"></div></div></div>
-<div class="sub">Labs I have worked in</div><div class="g c3" id="labs"></div></div></section>
-
-<section id="scholarly"><div class="wrap"><div class="sh rv"><h2>Scholarly work</h2><p>Published articles and book chapter. Tap a title to open the paper through its DOI.</p></div>
+<!-- PUBLICATIONS -->
+<section class="page" id="p-publications" data-title="Publications" hidden><div class="pi">
+<header class="sh"><h1>Scholarly work</h1><p id="pubsum">Published articles and book chapter. Tap a title to open the paper through its DOI.</p></header>
 <div class="fl"><button class="f on" data-f="all">All published</button><button class="f" data-f="2026">2026</button><button class="f" data-f="2025">2025</button><button class="f" data-f="other">Other years</button><button class="f" data-f="review">Under review</button></div>
 <input class="q" id="q" placeholder="Search titles, authors or journals…" aria-label="Search publications">
 <div id="list" aria-live="polite"></div><button id="more"></button>
-<p style="font-size:12.5px;color:var(--mute);margin-top:18px">† = These authors contributed equally to this study and shared the first authorship. Manuscripts under review are not published papers.</p></div></section>
-
-<section id="skills"><div class="wrap"><div class="sh rv"><h2>Scientific &amp; technical skills</h2></div><div class="g c3" id="skg"></div><div class="mq" aria-hidden="true"><div id="mq"></div></div></div></section>
-
-<section id="presentations"><div class="wrap"><div class="sh rv"><h2>Presentations</h2><p>Oral and poster presentations at scientific conferences.</p></div><div class="g c3" id="talks"></div></div></section>
-<section id="awards"><div class="wrap"><div class="sh rv"><h2>Awards &amp; fellowships</h2></div>
-<div class="g c2"><div class="card rv"><span class="tag">2023</span><h3>National Science &amp; Technology Fellowship</h3><p>Ministry of Science and Technology. Characterization of production traits and meat qualities of newly developed crossbred chickens (Multi Color Table Chicken and Sonali) in Bangladesh.</p></div><div class="card rv"><span class="tag">2023</span><h3>Best Volunteer Award</h3><p>Poultry Convention 2023, Poultry Professional Bangladesh.</p></div></div>
+<p class="note">† = These authors contributed equally to this study and shared the first authorship. Manuscripts under review are not published papers.</p>
 </div></section>
 
-<section id="more-info"><div class="wrap"><div class="sh rv"><h2>Credentials &amp; more</h2><p>Sections being prepared.</p></div><div class="g c3" id="soon"></div></div></section>
+<!-- EDUCATION -->
+<section class="page" id="p-education" data-title="Education" hidden><div class="pi">
+<header class="sh"><h1>Education &amp; academic performance</h1></header>
+<div class="g c2" id="edu"></div>
+<h2 class="sub">Credentials</h2>
+<div class="g c2" id="cred"></div>
+</div></section>
 
-<section id="gallery"><div class="wrap"><div class="sh rv"><h2>Gallery</h2><p>Tap a photo to enlarge.</p></div><div class="fl"><button class="f on" data-g="all">All</button><button class="f" data-g="Conferences">Conferences</button><button class="f" data-g="Portraits">Portraits</button></div>
-<div class="gal" id="gal"></div></div></section>
+<!-- EXPERIENCE -->
+<section class="page" id="p-experience" data-title="Experience" hidden><div class="pi">
+<header class="sh"><h1>Research, internships &amp; leadership</h1></header>
+<div class="g c2"><div><h2 class="sub">Research experience</h2><div class="tl" id="rexp"></div></div><div><h2 class="sub">Veterinary internship, Jun 2022 – Jan 2023</h2><div class="tl" id="intern"></div></div></div>
+<div class="g c2"><div><h2 class="sub">Teaching &amp; training</h2><div class="tl" id="teach"></div></div><div><h2 class="sub">Leadership &amp; volunteering</h2><div class="tl" id="lead"></div></div></div>
+</div></section>
 
-<section id="collab"><div class="wrap"><div class="card rv" style="padding:34px"><h2 style="font-size:clamp(24px,3vw,36px)">Research &amp; academic collaboration</h2><p style="margin-top:10px;max-width:760px">I welcome collaboration across veterinary, animal, biomedical and public health sciences, particularly on infectious diseases, antimicrobial resistance, meat science, epidemiology and One Health.</p><div class="chips" style="margin-top:16px"><span>Veterinary Science</span><span>Animal Science</span><span>One Health</span><span>Epidemiology</span><span>Antimicrobial Resistance</span></div></div></div></section>
+<!-- SKILLS -->
+<section class="page" id="p-skills" data-title="Skills" hidden><div class="pi">
+<header class="sh"><h1>Scientific &amp; technical skills</h1></header>
+<div class="g c3" id="skg"></div>
+</div></section>
+
+<!-- PRESENTATIONS -->
+<section class="page" id="p-presentations" data-title="Presentations" hidden><div class="pi">
+<header class="sh"><h1>Presentations</h1><p>Oral and poster presentations at scientific conferences.</p></header>
+<div class="g c3" id="talks"></div>
+</div></section>
+
+<!-- AWARDS -->
+<section class="page" id="p-awards" data-title="Awards" hidden><div class="pi">
+<header class="sh"><h1>Awards &amp; fellowships</h1></header>
+<div class="g c2"><div class="card rv"><span class="tag">2023</span><h3>National Science &amp; Technology Fellowship</h3><p>Ministry of Science and Technology, Bangladesh. Supports the crossbred chicken project described on the <a class="lk" style="margin:0" href="#/research">Research</a> page.</p></div><div class="card rv"><span class="tag">2023</span><h3>Best Volunteer Award</h3><p>Poultry Convention 2023, Poultry Professional Bangladesh.</p></div><div class="card rv soon"><span class="tag">Scholarships</span><h3>Board &amp; international scholarships</h3><p>Details coming soon.</p></div></div>
+</div></section>
+
+<!-- GALLERY -->
+<section class="page" id="p-gallery" data-title="Gallery" hidden><div class="pi">
+<header class="sh"><h1>Gallery</h1><p>Tap a photo to enlarge.</p></header>
+<div class="fl"><button class="f on" data-g="all">All</button><button class="f" data-g="Conferences">Conferences</button><button class="f" data-g="Portraits">Portraits</button></div>
+<div class="gal" id="gal"></div>
+</div></section>
+
+<!-- CONTACT -->
+<section class="page" id="p-contact" data-title="Contact" hidden><div class="pi">
+<header class="sh"><h1>Contact</h1></header>
+<div class="ct"><h2>Let’s advance research together.</h2><p>Open to academic collaboration, interdisciplinary research and scientific exchange.</p>
+<div class="dl" id="dl"></div>
+<h3 class="sl">Academic profiles</h3><div class="acts" id="cl"></div></div>
+<div class="card collab rv"><h3>Research &amp; academic collaboration</h3><p>I welcome collaboration across veterinary, animal, biomedical and public health sciences, particularly on infectious diseases, antimicrobial resistance, meat science, epidemiology and One Health.</p></div>
+</div></section>
 </main>
-<div class="ct" id="contact"><div class="wrap"><h2 class="rv">Let’s advance research together.</h2><p class="rv">Open to academic collaboration, interdisciplinary research and scientific exchange.</p>
-<div class="acts" id="cl"></div>
-<footer><span>© <span id="yr"></span> Md. Ismile Hossain Bhuiyan</span><span>Dhaka, Bangladesh</span></footer></div></div>
-</div>
+<footer class="site">© <span id="yr"></span> Md. Ismile Hossain Bhuiyan</footer>
 <div id="lb"><img alt=""></div><button id="top" aria-label="Back to top">↑</button>
 <script>
-
-const pubs=[{"title": "Impact of L-citrulline on meat production and quality: A study on its effects on meat attributes and nutritional composition", "year": "2025", "citation": "Bhuiyan, M. I. H., Ahmed, M. J., Mamun, M., Islam, K., Chalise, R., Bhandari, P., Alam, K. E., Kaderi, I. J., Alam, M. J., Hossain, D., and Ali, M. (2025). Impact of L-citrulline on meat production and quality: A study on its effects on meat attributes and nutritional composition. Poultry Science, 104(12), 106039. https://doi.org/10.1016/j.psj.2025.106039.", "url": "https://doi.org/10.1016/j.psj.2025.106039", "kind": "Journal article"}, {"title": "Farmers’ knowledge, attitudes, and practices regarding lumpy skin disease in Northern Bangladesh", "year": "2026", "citation": "Sama, S. P.†, Bhuiyan, M. I. H.†, Bhandari, P.†, Chalise, R., Midul, R. H., Ahmed, M., Shihab, K. M., Nirob, A. I., Hossain, D., and Ahmed, J. (2026). Farmers’ knowledge, attitudes, and practices regarding lumpy skin disease in Northern Bangladesh. BMC Veterinary Research, 22, 434. https://doi.org/10.1186/s12917-026-05555-z.", "url": "https://doi.org/10.1186/s12917-026-05555-z", "kind": "Journal article"}, {"title": "First nationwide assessment of knowledge, attitudes, and practices related to tick-borne diseases among livestock farmers in Bangladesh", "year": "2026", "citation": "Ahmed, M. J.†, Bhuiyan, M. I. H.†, Islam, S. M. S., Bhandari, P., Chalise, R., Nirob, A. I., Jami, S. S., Farzana, M., Gefari, A. Z., Bristy, F., & Hossain, D. (2026). First nationwide assessment of knowledge, attitudes, and practices related to tick-borne diseases among livestock farmers in Bangladesh. Acta Tropica, 279, 108126. https://doi.org/10.1016/j.actatropica.2026.108126", "url": "https://doi.org/10.1016/j.actatropica.2026.108126", "kind": "Journal article"}, {"title": "Determination of heavy metals and their health risks in processed poultry products collected from Dhaka city", "year": "2026", "citation": "Eamin, M.†, Alam, K. E.†, Bhuiyan, M. I.H†, Binte Mustafiz, S. S., Hasan, M. K., Rahman, M. A., Kabir, G. A., Kaium, A., Hossain, D., Ahmed, M. J., & Islam Chowdhury, M. T. (2026). Determination of heavy metals and their health risks in processed poultry products collected from Dhaka city. Journal of Food Protection, 100873. https://doi.org/10.1016/j.jfp.2026.100873.", "url": "https://doi.org/10.1016/j.jfp.2026.100873", "kind": "Journal article"}, {"title": "Factors influencing the adoption of biosecurity practices in livestock farming in Bangladesh for infectious disease prevention", "year": "2026", "citation": "Islam, S. M. S.†, Bhandari, P.†, Bhuiyan, M. I. H.†, Supty, S. I., Chalise, R., Rahman, M., Ullah, M. T., Farhan, M. A. A., Al Muktadir, M., Islam, M. M., Hossain, D., & Ahmed, M. J. (2026). Factors influencing the adoption of biosecurity practices in livestock farming in Bangladesh for infectious disease prevention. Scientific Reports. https://doi.org/10.1038/s41598-026-62398-2.", "url": "https://doi.org/10.1038/s41598-026-62398-2", "kind": "Journal article"}, {"title": "Vector-borne diseases in Bangladesh: a farmer-centric cross-sectional assessment", "year": "2026", "citation": "Bhandari, P.†, Chalise, R.†, Bhuiyan, M. I. H.†, Nirob, A. I., Jami, S. S., Hossain, M. H., Chowdhury, M. J., Hossain, D., & Ahmed, M. J. (2026). Vector-borne diseases in Bangladesh: a farmer-centric cross-sectional assessment. npj Veterinary Sciences, 1(1), 11. https://doi.org/10.1038/s44433-026-00013-w", "url": "https://doi.org/10.1038/s44433-026-00013-w", "kind": "Journal article"}, {"title": "Food‐Borne Diseases in Bangladesh: First Assessment of Knowledge, Attitudes, and Practices of Farmers", "year": "2026", "citation": "Ahmed, M. J.†, Bhandari, P.†, Bhuiyan, M. I. H.†, Chalise, R., Sarker, S., Yousuf, M. S. B., Easin, M., Rahi, M. R. U., Chakrabarty, H., & Paul, A. (2026). Food‐Borne Diseases in Bangladesh: First Assessment of Knowledge, Attitudes, and Practices of Farmers. Veterinary Medicine International, 2026, 3617712.", "url": "https://doi.org/10.1155/vmi/3617712", "kind": "Journal article"}, {"title": "Analyzing the impact of climate change and renewable energy on agricultural productivity in Bangladesh using an ARDL model", "year": "2026", "citation": "Ahammad, S., Datta, T., Mosharof, N. B., Islam, M. F., Bhuiyan, M. I. H., Ahmed, M. J., & Alam, K. E. (2026). Analyzing the impact of climate change and renewable energy on agricultural productivity in Bangladesh using an ARDL model. Discover Sustainability. https://doi.org/10.1007/s43621-026-03525-x.", "url": "https://doi.org/10.1007/s43621-026-03525-x", "kind": "Journal article"}, {"title": "One health assessment of farmers’ knowledge, attitudes, and practices (KAPs) on zoonoses in Bangladesh", "year": "2025", "citation": "Ahmed, M.J., Bhuiyan, M.I.H., Chalise, R., Mamun, M., Bhandari, P., Islam, K., Jami, S.S., Ali, M., Sabrin, M.S. One health assessment of farmers’ knowledge, attitudes, and practices (KAPs) on zoonoses in Bangladesh. Scientific Reports 2025, 15, 1258. https://doi.org/10.1038/s41598-025-85462-9.", "url": "https://doi.org/10.1038/s41598-025-85462-9", "kind": "Journal article"}, {"title": "Spatiotemporal Distribution and Meteorological Determinants of Lumpy Skin Disease (LSD) Occurrence in Bangladesh From 2020 to 2023", "year": "2025", "citation": "Ahmed, M. J., Alam, K. E., Talukdar, F., Bhuiyan, M. I. H., Bhandari, P., Chalise, R., Mahamud, D., Hossain, M. I., Sabrin, M. S., & Chowdhury, M. T. I. (2025). Spatiotemporal Distribution and Meteorological Determinants of Lumpy Skin Disease (LSD) Occurrence in Bangladesh From 2020 to 2023. Transboundary and Emerging Diseases, 2025(1), 4259023. https://doi.org/10.1155/tbed/4259023.", "url": "https://doi.org/10.1155/tbed/4259023", "kind": "Journal article"}, {"title": "Time series analysis of dengue incidence and its association with meteorological risk factors in Bangladesh", "year": "2025", "citation": "Alam, K.E.; Ahmed, M.J.; Chalise, R.; Rahman, M.A.; Mathin, T.T.; Bhuiyan, M.I.H.; Bhandari, P.; Hossain, D. Time series analysis of dengue incidence and its association with meteorological risk factors in Bangladesh. Plos one 2025, 20, e0323238. https://doi.org/10.1371/journal.pone.0323238.", "url": "https://doi.org/10.1371/journal.pone.0323238", "kind": "Journal article"}, {"title": "Antimicrobial Resistance in Meat and Meat Products from Asia: An Urgent One Health Challenge-A Systematic Review and Meta-analysis", "year": "2025", "citation": "Ahmed, M. J., Hossain, M. I., Bhuiyan, M. I. H., Rahman, M. A., Kaderi, I. J., Nirob, A. I., ... & Hossain, D. (2025). Antimicrobial Resistance in Meat and Meat Products from Asia: An Urgent One Health Challenge-A Systematic Review and Meta-analysis. Poultry Science, 105811. https://doi.org/10.1016/j.psj.2025.105811.", "url": "https://doi.org/10.1016/j.psj.2025.105811", "kind": "Journal article"}, {"title": "Lumpy Skin Disease in Cattle and Buffalo in Asian Countries: A Systematic Review and Meta-Analysis", "year": "2025", "citation": "Ahmed, M. J., Chalise, R., Bhandari, P., Rahman, M. A., Alam, K. E., Rahman, M. A., Bhuiyan, M. I. H., Chowdhury, M. J., Hossain, M. I., Hossain, D., Sabrin, M. S., & Ali, M. (2025). Lumpy Skin Disease in Cattle and Buffalo in Asian Countries: A Systematic Review and Meta-Analysis. Veterinary medicine and science, 11(5), e70607. https://doi.org/10.1002/vms3.70607.", "url": "https://doi.org/10.1002/vms3.70607", "kind": "Journal article"}, {"title": "Prevalence and Serotype Distribution of Foot and Mouth Disease (FMD) Virus in Asian Countries: A Systematic Review and Meta‐Analysis", "year": "2026", "citation": "Ahmed, M. J., Hossain, M. I., Rahman, M. A., Bhuiyan, M. I. H., Bhandari, P., Alam, K. E., Chalise, R., Kaderi, I. J., Rahi, M. A. I., & Tarin, T. (2026). Prevalence and Serotype Distribution of Foot and Mouth Disease (FMD) Virus in Asian Countries: A Systematic Review and Meta‐Analysis. Veterinary Medicine International, 2026(1), 5492291. https://doi.org/10.1155/vmi/5492291.", "url": "https://doi.org/10.1155/vmi/5492291", "kind": "Journal article"}, {"title": "Staphylococcus aureus in bovine intramammary infections: A global systematic review and meta-analysis of prevalence and antimicrobial resistance patterns", "year": "2026", "citation": "Ahmed, M. J., Rahman, M. A., Chalise, R., Bhandari, P., Bhuiyan, M. I. H., Hossain, M. I., Kaderi, I. J., Rahi, M. A. I., & Hossain, D. (2026). Staphylococcus aureus in bovine intramammary infections: A global systematic review and meta-analysis of prevalence and antimicrobial resistance patterns. New Microbes and New Infections, 74, 101860. https://doi.org/10.1016/j.nmni.2026.101860", "url": "https://doi.org/10.1016/j.nmni.2026.101860", "kind": "Journal article"}, {"title": "One health implications into the global prevalence, antimicrobial resistance, and resistome profiling of Streptococcus suis in pigs: A systematic review and meta-analysis", "year": "2026", "citation": "Ahmed, M. J., Rahman, M. A., Hossain Bhuiyan, M. I., Chalise, R., Bhandari, P., & Hossain, D. (2026). One health implications into the global prevalence, antimicrobial resistance, and resistome profiling of Streptococcus suis in pigs: A systematic review and meta-analysis. The Swine Journal, 1(3), 100127. https://doi.org/10.1016/j.swine.2026.100127", "url": "https://doi.org/10.1016/j.swine.2026.100127", "kind": "Journal article"}, {"title": "Spatiotemporal trends of foot and mouth disease (FMD) in Bangladesh from 2017 to 2023 and their associations with climatic factors and machine learning (ML) based prediction", "year": "2026", "citation": "Ahmed, M. J., Alam, K. E., Talukder, F., Bhandari, P., Bhuiyan, M. I. H., Mamun, M., Rahman, M. A., Chalise, R., Hossain, M. I., Morshed, M., Sabrin, M. S., Chowdhury, M. T. I., Alam, M. J., & Hossain, D. (2026). Spatiotemporal trends of foot and mouth disease (FMD) in Bangladesh from 2017 to 2023 and their associations with climatic factors and machine learning (ML) based prediction. Scientific Reports, 16(1), 26301. https://doi.org/10.1038/s41598-026-57440-2", "url": "https://doi.org/10.1038/s41598-026-57440-2", "kind": "Journal article"}, {"title": "Bovine Spongiform Encephalopathy (BSE) in Meat: Risks, Detection, and Management, Advances in Sustainable Meat Technology", "year": "2026", "citation": "Ahmed, M. J., Bhandari, P., Chalise, R., Bhuiyan, M. I. H., Hossain, M. I., Alam, K. E., Nirob, K. I., Islam, M.M., Hossain, D. (2026). Bovine Spongiform Encephalopathy (BSE) in Meat: Risks, Detection, and Management, Advances in Sustainable Meat Technology. Taylor and Francis (CRC Press). DOI: 10.1201/9781003689560-14.", "url": "https://doi.org/10.1201/9781003689560-14", "kind": "Book chapter"}, {"title": "Optimizing Beef Fattening Management Strategies in Sadar Upazila, Kushtia: A Comprehensive Study", "year": "2025", "citation": "Mamun, M.; Islam, K.; Rahman, M.Z.; Bhuiyan, M.I.H.; Nirob, A.I.; Sikder, T.; Ali, M. Optimizing Beef Fattening Management Strategies in Sadar Upazila, Kushtia: A Comprehensive Study. Research in Agriculture Livestock and Fisheries 2025, 12, 175-186. https://doi.org/10.3329/ralf.v12i2.84189.", "url": "https://doi.org/10.3329/ralf.v12i2.84189", "kind": "Journal article"}, {"title": "Prevalence of Mastitis in dairy cows in some regions of Bangladesh", "year": "2023", "citation": "Ahmed, M.J.; Al Zaber, M.A.; Bhuiyan, M.I.H.; Tusher, M.J.H.; Mahmood, J.; Devkota, N.; Yadav, N.; Promy, I.J. Prevalence of Mastitis in dairy cows in some regions of Bangladesh. Journal of Agriculture and Veterinary Science 2023. https://doi.org/10.9790/2380-1605010108.", "url": "https://doi.org/10.9790/2380-1605010108", "kind": "Journal article"}],reviews=["Pilot evaluation of broiler production under an agrivoltaic solar-PV system in Bangladesh: production performance, land-use integration and operational economics under internal review", "Bhuiyan, M. I. H. et al., (2026), Flea-borne Disease Preparedness Among Urban Companion Animal Owners in Bangladesh: A One Health Investigation, Submitted to Springer Nature (npj parasitology).", "Bhuiyan, M. I. H. et al., (2026), Heavy Metal Contamination in Milk of Dhaka, Bangladesh: Source-specific Comparison and Human Health Risk Assessment, Submitted to Elsevier (Current Research in Toxicology)", "Bhuiyan, M. I. H. et al., (2026), Assessing Knowledge, Attitude, and Practices (KAP) of Food Safety among Dhaka City's Street Food Vendors: A Public Health Issue. Submitted to Cell Press (Heliyon).", "Bhuiyan, M. I. H. et al., (2026), Spatiotemporal Distribution of Peste des Petits Ruminants (PPR) and Its Association with Meteorological Risk Factors in Bangladesh (2017-2023). Submitted to Elsevier (Preventive Veterinary Medicine).", "Bhuiyan, M. I. H. et al., (2026), Serosurveillance of Peste des Petits Ruminants (PPR) Virus in Sheep and Goats in South Asia: A Systematic Review and Meta-analysis. Submitted to WILEY (Veterinary Medicine and Science).", "Bhuiyan, M. I. H. et al., (2026), Analyzing Large-Scale Healthcare Data with Large Language Models: Applications and Challenges. Submitted to Nature (Discover Artificial Intelligence).", "Bhuiyan, M. I. H. et al., (2026), Morpho-Molecular Identification and Characterization of Major Fungal Pathogens Associated with Maize Diseases in Selected Areas of Bangladesh. Submitted to WILEY (Journal of Phytopathology)", "Bhuiyan, M. I. H. et al., (2026), Handbook of Infectious Disease (Staphylococcus aureus: Epidemiology, Pathogenesis, Resistance Mechanisms, Antimicrobial Resistance Patterns, and Therapeutic Management). Book chapter submitted to Springer."];
+const pubs=[{"title": "Impact of L-citrulline on meat production and quality: A study on its effects on meat attributes and nutritional composition", "year": "2025", "citation": "Bhuiyan, M. I. H., Ahmed, M. J., Mamun, M., Islam, K., Chalise, R., Bhandari, P., Alam, K. E., Kaderi, I. J., Alam, M. J., Hossain, D., and Ali, M. (2025). Impact of L-citrulline on meat production and quality: A study on its effects on meat attributes and nutritional composition. Poultry Science, 104(12), 106039. https://doi.org/10.1016/j.psj.2025.106039.", "url": "https://doi.org/10.1016/j.psj.2025.106039", "kind": "Journal article"}, {"title": "Farmers’ knowledge, attitudes, and practices regarding lumpy skin disease in Northern Bangladesh", "year": "2026", "citation": "Sama, S. P.†, Bhuiyan, M. I. H.†, Bhandari, P.†, Chalise, R., Midul, R. H., Ahmed, M., Shihab, K. M., Nirob, A. I., Hossain, D., and Ahmed, J. (2026). Farmers’ knowledge, attitudes, and practices regarding lumpy skin disease in Northern Bangladesh. BMC Veterinary Research, 22, 434. https://doi.org/10.1186/s12917-026-05555-z.", "url": "https://doi.org/10.1186/s12917-026-05555-z", "kind": "Journal article"}, {"title": "First nationwide assessment of knowledge, attitudes, and practices related to tick-borne diseases among livestock farmers in Bangladesh", "year": "2026", "citation": "Ahmed, M. J.†, Bhuiyan, M. I. H.†, Islam, S. M. S., Bhandari, P., Chalise, R., Nirob, A. I., Jami, S. S., Farzana, M., Gefari, A. Z., Bristy, F., & Hossain, D. (2026). First nationwide assessment of knowledge, attitudes, and practices related to tick-borne diseases among livestock farmers in Bangladesh. Acta Tropica, 279, 108126. https://doi.org/10.1016/j.actatropica.2026.108126", "url": "https://doi.org/10.1016/j.actatropica.2026.108126", "kind": "Journal article"}, {"title": "Determination of heavy metals and their health risks in processed poultry products collected from Dhaka city", "year": "2026", "citation": "Eamin, M.†, Alam, K. E.†, Bhuiyan, M. I.H†, Binte Mustafiz, S. S., Hasan, M. K., Rahman, M. A., Kabir, G. A., Kaium, A., Hossain, D., Ahmed, M. J., & Islam Chowdhury, M. T. (2026). Determination of heavy metals and their health risks in processed poultry products collected from Dhaka city. Journal of Food Protection, 100873. https://doi.org/10.1016/j.jfp.2026.100873.", "url": "https://doi.org/10.1016/j.jfp.2026.100873", "kind": "Journal article"}, {"title": "Factors influencing the adoption of biosecurity practices in livestock farming in Bangladesh for infectious disease prevention", "year": "2026", "citation": "Islam, S. M. S.†, Bhandari, P.†, Bhuiyan, M. I. H.†, Supty, S. I., Chalise, R., Rahman, M., Ullah, M. T., Farhan, M. A. A., Al Muktadir, M., Islam, M. M., Hossain, D., & Ahmed, M. J. (2026). Factors influencing the adoption of biosecurity practices in livestock farming in Bangladesh for infectious disease prevention. Scientific Reports. https://doi.org/10.1038/s41598-026-62398-2.", "url": "https://doi.org/10.1038/s41598-026-62398-2", "kind": "Journal article"}, {"title": "Vector-borne diseases in Bangladesh: a farmer-centric cross-sectional assessment", "year": "2026", "citation": "Bhandari, P.†, Chalise, R.†, Bhuiyan, M. I. H.†, Nirob, A. I., Jami, S. S., Hossain, M. H., Chowdhury, M. J., Hossain, D., & Ahmed, M. J. (2026). Vector-borne diseases in Bangladesh: a farmer-centric cross-sectional assessment. npj Veterinary Sciences, 1(1), 11. https://doi.org/10.1038/s44433-026-00013-w", "url": "https://doi.org/10.1038/s44433-026-00013-w", "kind": "Journal article"}, {"title": "Food‐Borne Diseases in Bangladesh: First Assessment of Knowledge, Attitudes, and Practices of Farmers", "year": "2026", "citation": "Ahmed, M. J.†, Bhandari, P.†, Bhuiyan, M. I. H.†, Chalise, R., Sarker, S., Yousuf, M. S. B., Easin, M., Rahi, M. R. U., Chakrabarty, H., & Paul, A. (2026). Food‐Borne Diseases in Bangladesh: First Assessment of Knowledge, Attitudes, and Practices of Farmers. Veterinary Medicine International, 2026, 3617712.", "url": "https://doi.org/10.1155/vmi/3617712", "kind": "Journal article"}, {"title": "Analyzing the impact of climate change and renewable energy on agricultural productivity in Bangladesh using an ARDL model", "year": "2026", "citation": "Ahammad, S., Datta, T., Mosharof, N. B., Islam, M. F., Bhuiyan, M. I. H., Ahmed, M. J., & Alam, K. E. (2026). Analyzing the impact of climate change and renewable energy on agricultural productivity in Bangladesh using an ARDL model. Discover Sustainability. https://doi.org/10.1007/s43621-026-03525-x.", "url": "https://doi.org/10.1007/s43621-026-03525-x", "kind": "Journal article"}, {"title": "One health assessment of farmers’ knowledge, attitudes, and practices (KAPs) on zoonoses in Bangladesh", "year": "2025", "citation": "Ahmed, M.J., Bhuiyan, M.I.H., Chalise, R., Mamun, M., Bhandari, P., Islam, K., Jami, S.S., Ali, M., Sabrin, M.S. One health assessment of farmers’ knowledge, attitudes, and practices (KAPs) on zoonoses in Bangladesh. Scientific Reports 2025, 15, 1258. https://doi.org/10.1038/s41598-025-85462-9.", "url": "https://doi.org/10.1038/s41598-025-85462-9", "kind": "Journal article"}, {"title": "Spatiotemporal Distribution and Meteorological Determinants of Lumpy Skin Disease (LSD) Occurrence in Bangladesh From 2020 to 2023", "year": "2025", "citation": "Ahmed, M. J., Alam, K. E., Talukdar, F., Bhuiyan, M. I. H., Bhandari, P., Chalise, R., Mahamud, D., Hossain, M. I., Sabrin, M. S., & Chowdhury, M. T. I. (2025). Spatiotemporal Distribution and Meteorological Determinants of Lumpy Skin Disease (LSD) Occurrence in Bangladesh From 2020 to 2023. Transboundary and Emerging Diseases, 2025(1), 4259023. https://doi.org/10.1155/tbed/4259023.", "url": "https://doi.org/10.1155/tbed/4259023", "kind": "Journal article"}, {"title": "Time series analysis of dengue incidence and its association with meteorological risk factors in Bangladesh", "year": "2025", "citation": "Alam, K.E.; Ahmed, M.J.; Chalise, R.; Rahman, M.A.; Mathin, T.T.; Bhuiyan, M.I.H.; Bhandari, P.; Hossain, D. Time series analysis of dengue incidence and its association with meteorological risk factors in Bangladesh. Plos one 2025, 20, e0323238. https://doi.org/10.1371/journal.pone.0323238.", "url": "https://doi.org/10.1371/journal.pone.0323238", "kind": "Journal article"}, {"title": "Antimicrobial Resistance in Meat and Meat Products from Asia: An Urgent One Health Challenge-A Systematic Review and Meta-analysis", "year": "2025", "citation": "Ahmed, M. J., Hossain, M. I., Bhuiyan, M. I. H., Rahman, M. A., Kaderi, I. J., Nirob, A. I., ... & Hossain, D. (2025). Antimicrobial Resistance in Meat and Meat Products from Asia: An Urgent One Health Challenge-A Systematic Review and Meta-analysis. Poultry Science, 105811. https://doi.org/10.1016/j.psj.2025.105811.", "url": "https://doi.org/10.1016/j.psj.2025.105811", "kind": "Journal article"}, {"title": "Lumpy Skin Disease in Cattle and Buffalo in Asian Countries: A Systematic Review and Meta-Analysis", "year": "2025", "citation": "Ahmed, M. J., Chalise, R., Bhandari, P., Rahman, M. A., Alam, K. E., Rahman, M. A., Bhuiyan, M. I. H., Chowdhury, M. J., Hossain, M. I., Hossain, D., Sabrin, M. S., & Ali, M. (2025). Lumpy Skin Disease in Cattle and Buffalo in Asian Countries: A Systematic Review and Meta-Analysis. Veterinary medicine and science, 11(5), e70607. https://doi.org/10.1002/vms3.70607.", "url": "https://doi.org/10.1002/vms3.70607", "kind": "Journal article"}, {"title": "Prevalence and Serotype Distribution of Foot and Mouth Disease (FMD) Virus in Asian Countries: A Systematic Review and Meta‐Analysis", "year": "2026", "citation": "Ahmed, M. J., Hossain, M. I., Rahman, M. A., Bhuiyan, M. I. H., Bhandari, P., Alam, K. E., Chalise, R., Kaderi, I. J., Rahi, M. A. I., & Tarin, T. (2026). Prevalence and Serotype Distribution of Foot and Mouth Disease (FMD) Virus in Asian Countries: A Systematic Review and Meta‐Analysis. Veterinary Medicine International, 2026(1), 5492291. https://doi.org/10.1155/vmi/5492291.", "url": "https://doi.org/10.1155/vmi/5492291", "kind": "Journal article"}, {"title": "Staphylococcus aureus in bovine intramammary infections: A global systematic review and meta-analysis of prevalence and antimicrobial resistance patterns", "year": "2026", "citation": "Ahmed, M. J., Rahman, M. A., Chalise, R., Bhandari, P., Bhuiyan, M. I. H., Hossain, M. I., Kaderi, I. J., Rahi, M. A. I., & Hossain, D. (2026). Staphylococcus aureus in bovine intramammary infections: A global systematic review and meta-analysis of prevalence and antimicrobial resistance patterns. New Microbes and New Infections, 74, 101860. https://doi.org/10.1016/j.nmni.2026.101860", "url": "https://doi.org/10.1016/j.nmni.2026.101860", "kind": "Journal article"}, {"title": "One health implications into the global prevalence, antimicrobial resistance, and resistome profiling of Streptococcus suis in pigs: A systematic review and meta-analysis", "year": "2026", "citation": "Ahmed, M. J., Rahman, M. A., Hossain Bhuiyan, M. I., Chalise, R., Bhandari, P., & Hossain, D. (2026). One health implications into the global prevalence, antimicrobial resistance, and resistome profiling of Streptococcus suis in pigs: A systematic review and meta-analysis. The Swine Journal, 1(3), 100127. https://doi.org/10.1016/j.swine.2026.100127", "url": "https://doi.org/10.1016/j.swine.2026.100127", "kind": "Journal article"}, {"title": "Spatiotemporal trends of foot and mouth disease (FMD) in Bangladesh from 2017 to 2023 and their associations with climatic factors and machine learning (ML) based prediction", "year": "2026", "citation": "Ahmed, M. J., Alam, K. E., Talukder, F., Bhandari, P., Bhuiyan, M. I. H., Mamun, M., Rahman, M. A., Chalise, R., Hossain, M. I., Morshed, M., Sabrin, M. S., Chowdhury, M. T. I., Alam, M. J., & Hossain, D. (2026). Spatiotemporal trends of foot and mouth disease (FMD) in Bangladesh from 2017 to 2023 and their associations with climatic factors and machine learning (ML) based prediction. Scientific Reports, 16(1), 26301. https://doi.org/10.1038/s41598-026-57440-2", "url": "https://doi.org/10.1038/s41598-026-57440-2", "kind": "Journal article"}, {"title": "Bovine Spongiform Encephalopathy (BSE) in Meat: Risks, Detection, and Management, Advances in Sustainable Meat Technology", "year": "2026", "citation": "Ahmed, M. J., Bhandari, P., Chalise, R., Bhuiyan, M. I. H., Hossain, M. I., Alam, K. E., Nirob, K. I., Islam, M.M., Hossain, D. (2026). Bovine Spongiform Encephalopathy (BSE) in Meat: Risks, Detection, and Management, Advances in Sustainable Meat Technology. Taylor and Francis (CRC Press). DOI: 10.1201/9781003689560-14.", "url": "https://doi.org/10.1201/9781003689560-14", "kind": "Book chapter"}, {"title": "Optimizing Beef Fattening Management Strategies in Sadar Upazila, Kushtia: A Comprehensive Study", "year": "2025", "citation": "Mamun, M.; Islam, K.; Rahman, M.Z.; Bhuiyan, M.I.H.; Nirob, A.I.; Sikder, T.; Ali, M. Optimizing Beef Fattening Management Strategies in Sadar Upazila, Kushtia: A Comprehensive Study. Research in Agriculture Livestock and Fisheries 2025, 12, 175-186. https://doi.org/10.3329/ralf.v12i2.84189.", "url": "https://doi.org/10.3329/ralf.v12i2.84189", "kind": "Journal article"}, {"title": "Prevalence of Mastitis in dairy cows in some regions of Bangladesh", "year": "2023", "citation": "Ahmed, M.J.; Al Zaber, M.A.; Bhuiyan, M.I.H.; Tusher, M.J.H.; Mahmood, J.; Devkota, N.; Yadav, N.; Promy, I.J. Prevalence of Mastitis in dairy cows in some regions of Bangladesh. Journal of Agriculture and Veterinary Science 2023. https://doi.org/10.9790/2380-1605010108.", "url": "https://doi.org/10.9790/2380-1605010108", "kind": "Journal article"}],reviews=["Pilot evaluation of broiler production under an agrivoltaic solar-PV system in Bangladesh: production performance, land-use integration and operational economics under internal review","Bhuiyan, M. I. H. et al., (2026), Flea-borne Disease Preparedness Among Urban Companion Animal Owners in Bangladesh: A One Health Investigation, Submitted to Springer Nature (npj parasitology).","Bhuiyan, M. I. H. et al., (2026), Heavy Metal Contamination in Milk of Dhaka, Bangladesh: Source-specific Comparison and Human Health Risk Assessment, Submitted to Elsevier (Current Research in Toxicology)","Bhuiyan, M. I. H. et al., (2026), Assessing Knowledge, Attitude, and Practices (KAP) of Food Safety among Dhaka City's Street Food Vendors: A Public Health Issue. Submitted to Cell Press (Heliyon).","Bhuiyan, M. I. H. et al., (2026), Spatiotemporal Distribution of Peste des Petits Ruminants (PPR) and Its Association with Meteorological Risk Factors in Bangladesh (2017-2023). Submitted to Elsevier (Preventive Veterinary Medicine).","Bhuiyan, M. I. H. et al., (2026), Serosurveillance of Peste des Petits Ruminants (PPR) Virus in Sheep and Goats in South Asia: A Systematic Review and Meta-analysis. Submitted to WILEY (Veterinary Medicine and Science).","Bhuiyan, M. I. H. et al., (2026), Analyzing Large-Scale Healthcare Data with Large Language Models: Applications and Challenges. Submitted to Nature (Discover Artificial Intelligence).","Bhuiyan, M. I. H. et al., (2026), Morpho-Molecular Identification and Characterization of Major Fungal Pathogens Associated with Maize Diseases in Selected Areas of Bangladesh. Submitted to WILEY (Journal of Phytopathology)","Bhuiyan, M. I. H. et al., (2026), Handbook of Infectious Disease (Staphylococcus aureus: Epidemiology, Pathogenesis, Resistance Mechanisms, Antimicrobial Resistance Patterns, and Therapeutic Management). Book chapter submitted to Springer."];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
-$('#yr').textContent=new Date().getFullYear();$('#pc').dataset.n=pubs.length;$('#rc').dataset.n=reviews.length;
-// theme (dark only)
-const root=document.documentElement;root.dataset.theme='dark';
-$('#menu').onclick=()=>$('#links').classList.toggle('o');$$('#links a').forEach(a=>a.onclick=()=>$('#links').classList.remove('o'));
-
+$('#yr').textContent=new Date().getFullYear();
+$('#pubsum').textContent=`${pubs.length} published works and ${reviews.length} manuscripts under review. Tap a title to open the paper through its DOI.`;
 
 // ---- content data ----
-const rv=(h,i)=>`<div class="card rv">${h}</div>`,tg=s=>`<span class="tag">${s}</span>`;
-const PR=[['Impact of L-citrulline on meat production and quality','Published','Effects of L-citrulline on meat attributes and nutritional composition. Published in Poultry Science (2025) and the basis of my MS thesis.',['Meat quality','Nutrition'],'https://doi.org/10.1016/j.psj.2025.106039'],
+const rv=h=>`<div class="card rv">${h}</div>`,tg=s=>`<span class="tag">${s}</span>`;
+const PR=[['Impact of L-citrulline on meat production and quality','Published','Effects of L-citrulline on meat attributes and nutritional composition; the basis of my MS thesis.',['Meat quality','Nutrition'],'https://doi.org/10.1016/j.psj.2025.106039'],
 ['Quinoa supplementation in broiler diets','Ongoing','A sustainable approach to fat reduction and meat quality enhancement.',['Broilers','Fat reduction']],
 ['Pre-slaughter stress and broiler meat quality','Ongoing','Investigating how pre-slaughter stresses influence broiler meat quality and safety.',['Meat safety','Stress']],
-['Crossbred chickens: production traits and meat quality','Ongoing','Characterizing newly developed crossbreds (Multi Color Table Chicken and Sonali) in Bangladesh, supported by the National Science & Technology Fellowship.',['Production traits','Fellowship']],
+['Crossbred chickens: production traits and meat quality','Ongoing','Characterizing newly developed crossbreds (Multi Color Table Chicken and Sonali) in Bangladesh.',['Production traits','Fellowship']],
 ['Red seaweed in broiler diets','Ongoing','Effects of Gracilariopsis lemaneiformis supplementation on growth performance and hematological parameters.',['Growth','Hematology']]];
 let pf='all';function rp(){$('#proj').innerHTML=PR.filter(p=>pf=='all'||p[1]==pf).map((p,i)=>`<details class="card pub" style="--k:${i}"><summary><div>${tg(p[1])}<h3>${p[0]}</h3></div></summary><div class="more"><p>${p[2]}</p><div class="chips">${p[3].map(x=>`<span>${x}</span>`).join('')}</div>${p[4]?`<a class="lk" target="_blank" rel="noopener" href="${p[4]}">View publication ↗</a>`:''}</div></details>`).join('')}
 $$('[data-p]').forEach(b=>b.onclick=()=>{$$('[data-p]').forEach(x=>x.classList.remove('on'));b.classList.add('on');pf=b.dataset.p;rp()});rp();
-$('#meth').innerHTML=[['Field & epidemiological research','KAP surveys of farmers, cross-sectional studies, questionnaire design and field data collection (KoboToolBox, Google Forms).'],['Evidence & literature research','Systematic reviews and meta-analyses, literature screening, data extraction and evidence synthesis.'],['Spatial & data-driven research','Spatiotemporal analysis, climate-disease modelling and time-series analysis with R, SPSS and ArcGIS.'],['Experimental & laboratory research','Broiler feeding trials, meat proximate analysis, bacterial culture, AST, PCR, qPCR, ELISA and MALDI-TOF.']].map(m=>rv(`<h3>${m[0]}</h3><p>${m[1]}</p>`)).join('');
+$('#meth').innerHTML=[['Field & epidemiological research','KAP surveys of farmers, cross-sectional studies, questionnaire design and field data collection.'],['Evidence & literature research','Systematic reviews and meta-analyses, literature screening, data extraction and evidence synthesis.'],['Spatial & data-driven research','Spatiotemporal analysis, climate-disease modelling and time-series analysis.'],['Experimental & laboratory research','Broiler feeding trials, meat proximate analysis, and microbiological and molecular laboratory work.']].map(m=>rv(`<h3>${m[0]}</h3><p>${m[1]}</p>`)).join('');
 const ED=[['Master of Science in Animal Science','Sher-e-Bangla Agricultural University','May 2023 – Dec 2025','Thesis: Impact of L-citrulline on meat production and quality: A study on its effects on meat attributes and nutritional composition.',3.87,4,'Ranked 1st'],['BSc. in Veterinary Science and Animal Husbandry','Sher-e-Bangla Agricultural University','Jan 2017 – Jan 2023','Report: Antibiotic usage in poultry farms in Narayanganj Sadar Upazila.',3.63,4,'Ranked 10th']];
 const SAU='<img class="ul" src="sau-logo.png" alt="Sher-e-Bangla Agricultural University logo" loading="lazy" onerror="this.onerror=null;this.src=\'https://upload.wikimedia.org/wikipedia/en/d/d5/Sher-e-Bangla_Agricultural_University_Logo.png\'">';
-$('#edu').innerHTML=ED.map(e=>rv(`${e[1].includes('Sher-e-Bangla')?SAU:''}${tg(e[2])}<h3>${e[0]}</h3><p>${e[1]}${e[3]?'<br>'+e[3]:''}</p><div class="big" style="margin-top:14px">${e[4].toFixed(2)}<small> / ${e[5]}.00 ${e[6]?'· '+e[6]:''}</small></div><div class="bar" style="--w:${e[4]/e[5]*100}%"><i></i></div>`)).join('');
+$('#edu').innerHTML=ED.map(e=>`<div class="card rv edu">${e[1].includes('Sher-e-Bangla')?SAU:''}${tg(e[2])}<h3>${e[0]}</h3><p>${e[1]}${e[3]?'<br>'+e[3]:''}</p><div class="big" style="margin-top:14px">${e[4].toFixed(2)}<small> / ${e[5]}.00 ${e[6]?'· '+e[6]:''}</small></div><div class="bar" style="--w:${e[4]/e[5]*100}%"><i></i></div></div>`).join('');
+$('#cred').innerHTML='<div class="card rv"><span class="tag">British Council</span><h3>English proficiency test</h3><div class="big" style="margin-top:10px">6.5<small> overall score</small></div></div><div class="card rv"><span class="tag">Bangladesh Veterinary Council</span><h3>Registered Veterinary Doctor</h3><div class="big" style="margin-top:10px"><small>Registration No. </small>8246</div></div>';
 const tl=(id,a)=>$(id).innerHTML=a.map(x=>rv(`${tg(x[0])}<h3>${x[1]}</h3>${x[2]?`<p>${x[2]}</p>`:''}${x[3]?`<ul>${x[3].map(l=>`<li>${l}</li>`).join('')}</ul>`:''}`)).join('');
 tl('#rexp',[['Jan 2024 – Present','Research Assistant · Animal Science Lab','Dept. of Animal Production & Management, SAU',['Supported experimental design, animal management, feeding and welfare monitoring','Collected and processed biological samples; meat quality and proximate analyses','Analyzed data with SPSS and R; prepared reports and manuscripts']],['Jan 2023 – Present','Senior Researcher · ACTG','Association of Coding, Technology & Genomics, SAU',['Literature reviews, research design and methodology','Data analysis, manuscript review and writing','Coordinated workshops, seminars and training sessions']]]);
 tl('#intern',[['20 days','Diagnostic procedures training','West Bengal University of Animal & Fishery Sciences, Kolkata, India'],['1 month','Intern Doctor, farm animal clinic','Upazila Veterinary Hospital, Narayanganj Sadar'],['15 days','Small animal medicine','Central Veterinary Hospital, Dhaka'],['1 week','Diagnostic laboratory procedures','Central Disease Investigation Laboratory (CDIL), Dhaka'],['15 days','Equine and canine medicine','Remount Veterinary & Farm Corps, Military Farm, Savar'],['15 days','Zoo and wildlife animals','Bangladesh National Zoo, Mirpur'],['1 week','Poultry postmortem and diagnosis','Kazi Farms, Gazipur']]);
 tl('#teach',[['Oct 2024 – Jan 2025','Course Instructor · Research Internship Program','ACTG'],['Feb – Mar 2026','Course Instructor · GIS & Remote Sensing with R','ACTG'],['Aug 2026','Course Instructor · 2-Day BioRender Workshop','ACTG'],['Sep 2026','Course Instructor · Reference Management','ACTG']]);
 tl('#lead',[['2019 – 2022','Co-Leader · Poultry Professional Bangladesh (SAU Unit)','Led 50 team members to organize the 1st PPB convention, engaging 1,500 participants over 2 days; produced Bengali farmer-education content.'],['2020 – 2021','General Secretary · Badhan, SAU Unit','Led board meetings and planned blood donation camps, awareness programs and emergency response.'],['2020 – 2021','Student Member · Parasite Resource Bank, Dhaka',''],['2020 – 2021','Associate Member · IAAS Bangladesh SAU Dhaka','Student exchange and cultural programs; connected with NGOs, companies and research institutions.']]);
-$('#labs').innerHTML=[['Animal Science Lab','Dept. of Animal Production & Management, SAU','Jan 2024 – Present','Meat quality, proximate analysis, feeding trials'],['ACTG Dry Lab','Association of Coding, Technology & Genomics','Jan 2023 – Present','Data analysis, systematic reviews, manuscripts'],['Diagnostic laboratories','CDIL Dhaka · West Bengal University of Animal & Fishery Sciences','2022 – 2023','Diagnostic procedures training']].map(l=>rv(`${tg(l[2])}<h3>${l[0]}</h3><p>${l[1]}<br>${l[3]}</p>`)).join('');
-$('#skg').innerHTML=[['Laboratory','Proximate analysis, bacterial culture and staining, antibiotic susceptibility testing, DNA/RNA isolation and quality assessment, PCR, qPCR, RT-qPCR, gel electrophoresis, ELISA, MALDI-TOF, cell culture.'],['Programming & analytics','R · SPSS · Microsoft Excel · ArcGIS.'],['Survey & writing tools','KoboToolBox, Google Form, Microsoft Word, EndNote.']].map(s=>rv(`${tg(s[0])}<h3 style="font-size:16px">${s[0]}</h3><p>${s[1]}</p>`)).join('');
-$('#talks').innerHTML=[['Poster · Presenter','Spatiotemporal dynamics of lumpy skin disease in Bangladesh (2020-2023)','1st Scientific Conference of Veterinary and Animal Sciences, University of Rajshahi'],['Poster · Presenter · 2025','Heavy metals and health risks in processed poultry products, Dhaka','31st Annual Scientific Conference, BSVER, Bangladesh Agricultural University, Mymensingh'],['Oral · 2025','Climate change and renewable energy on agricultural productivity in Bangladesh (ARDL)','4th International Energy Congress, Sivas Cumhuriyet University & IKSAD, Türkiye']].map(x=>rv(`${tg(x[0])}<h3 style="font-size:16px">${x[1]}</h3><p>${x[2]}</p>`)).join('');
-$('#soon').innerHTML='<div class="card rv"><span class="tag">British Council</span><h3>English proficiency test</h3><div class="big" style="margin-top:10px">6.5<small> overall score</small></div></div>'+'<div class="card rv"><span class="tag">Bangladesh Veterinary Council</span><h3>Registered Veterinary Doctor</h3><div class="big" style="margin-top:10px"><small>Registration No. </small>8246</div></div>'+['Scholarships','Public service','Media & science communication'].map(s=>`<div class="card rv soon"><h3>${s}</h3><p>Details coming soon.</p></div>`).join('');
+$('#skg').innerHTML=[['Laboratory','Proximate analysis, bacterial culture and staining, antibiotic susceptibility testing, DNA/RNA isolation and quality assessment, PCR, qPCR, RT-qPCR, gel electrophoresis, ELISA, MALDI-TOF, cell culture.'],['Programming & analytics','R · SPSS · Microsoft Excel · ArcGIS.'],['Survey & writing tools','KoboToolBox, Google Form, Microsoft Word, EndNote.']].map(s=>rv(`${tg(s[0])}<h3 style="margin-top:12px">${s[0]}</h3><p>${s[1]}</p>`)).join('');
+$('#talks').innerHTML=[['Poster · Presenter','Spatiotemporal dynamics of lumpy skin disease in Bangladesh (2020-2023)','1st Scientific Conference of Veterinary and Animal Sciences, University of Rajshahi'],['Poster · Presenter · 2025','Heavy metals and health risks in processed poultry products, Dhaka','31st Annual Scientific Conference, BSVER, Bangladesh Agricultural University, Mymensingh'],['Oral · 2025','Climate change and renewable energy on agricultural productivity in Bangladesh (ARDL)','4th International Energy Congress, Sivas Cumhuriyet University & IKSAD, Türkiye']].map(x=>rv(`${tg(x[0])}<h3 style="margin-top:12px">${x[1]}</h3><p>${x[2]}</p>`)).join('');
 const GAL=[['conference.jpg','Poster presentation on lumpy skin disease epidemiology and climatic determinants in Bangladesh','Conferences','50% 38%'],['portrait.jpg','Professional portrait','Portraits','50% 20%'],['portrait-labcoat.jpg','Portrait in a laboratory coat','Portraits','50% 18%']];let gf='all';
 function rg(){$('#gal').innerHTML=GAL.filter(g=>gf=='all'||g[2]==gf).map(g=>`<figure class="card rv v"><img src="${g[0]}" alt="${g[1]}" style="object-position:${g[3]}" loading="lazy"><figcaption>${g[1]}</figcaption></figure>`).join('')}
 $$('[data-g]').forEach(b=>b.onclick=()=>{$$('[data-g]').forEach(x=>x.classList.remove('on'));b.classList.add('on');gf=b.dataset.g;rg()});rg();
 
-// ---- profiles ----
-const G={cap:'<svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v4L12 21l7-3.8v-4L12 17l-7-3.8z"/></svg>',mail:'<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>',tel:'<svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z"/></svg>'};
-const PF=[['Google Scholar','https://scholar.google.com/citations?user=o4gz6KMAAAAJ&hl=en','#4285f4',G.cap],['ORCID','https://orcid.org/0009-0006-8325-3813','#a6ce39','iD'],['ResearchGate','https://www.researchgate.net/profile/Md-Bhuiyan-125?ev=hdr_xprf','#00b8a9','RG'],['Scopus','https://www.scopus.com/authid/detail.uri?authorId=59334800500','#e9711c','Sc'],['LinkedIn','https://www.linkedin.com/in/md-ismile-hossain-bhuiyan-334083209','#0a66c2','in'],['Email','mailto:ismile.apma-1708046@sau.edu.bd','#0e7490',G.mail],['+880 1515-633753','tel:+8801515633753','#2f6fb5',G.tel]];
-const bd=p=>`<span class="bd" style="background:${p[2]}">${p[3]}</span>`,ext=u=>u.startsWith('http')?' target="_blank" rel="noopener"':'';
-$('#prof').innerHTML=PF.map(p=>p[1]?`<a href="${p[1]}"${ext(p[1])}>${bd(p)}${p[0]}${p[1].startsWith('http')?' ↗':''}</a>`:`<span class="off" title="Link coming soon">${bd(p)}${p[0]} · soon</span>`).join('');
-$('#ic').innerHTML=PF.filter(p=>p[1]).map(p=>`<a href="${p[1]}"${ext(p[1])} title="${p[0]}" aria-label="${p[0]}">${bd(p)}</a>`).join('');
-$('#cl').innerHTML=PF.filter(p=>p[1]).map((p,i)=>`<a class="btn mag${p[0]=='Email'?' p':''}" href="${p[1]}"${ext(p[1])}>${bd(p)}${p[0]}</a>`).join('')+'<a class="btn mag" href="public-cv.docx" download>Download CV ↓</a>';
-// scroll: progress, back-to-top, timeline fill
+// ---- contact (only place for contact details & profiles) ----
+const G={cap:'<svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v4L12 21l7-3.8v-4L12 17l-7-3.8z"/></svg>',mail:'<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>',tel:'<svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z"/></svg>',pin:'<svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z"/></svg>'};
+const PF=[['Google Scholar','https://scholar.google.com/citations?user=o4gz6KMAAAAJ&hl=en','#4285f4',G.cap],['ORCID','https://orcid.org/0009-0006-8325-3813','#a6ce39','iD'],['ResearchGate','https://www.researchgate.net/profile/Md-Bhuiyan-125?ev=hdr_xprf','#00b8a9','RG'],['Scopus','https://www.scopus.com/authid/detail.uri?authorId=59334800500','#e9711c','Sc'],['LinkedIn','https://www.linkedin.com/in/md-ismile-hossain-bhuiyan-334083209','#0a66c2','in']];
+const bd=(c,i)=>`<span class="bd" style="background:${c}">${i}</span>`;
+$('#dl').innerHTML=`<div>${bd('#0e7490',G.mail)}<span><small>Email</small><a href="mailto:ismile.apma-1708046@sau.edu.bd">ismile.apma-1708046@sau.edu.bd</a></span></div><div>${bd('#2f6fb5',G.tel)}<span><small>Phone</small><a href="tel:+8801515633753">+880 1515-633753</a></span></div><div>${bd('#5aa469',G.pin)}<span><small>Location</small><span class="v2">Dhaka, Bangladesh</span></span></div>`;
+$('#cl').innerHTML=PF.map(p=>`<a class="btn mag" href="${p[1]}" target="_blank" rel="noopener">${bd(p[2],p[3])}${p[0]} ↗</a>`).join('')+'<a class="btn p mag" href="public-cv.docx" download>Download CV ↓</a>';
+
+// ---- scroll effects ----
 const tls=$$('.tl');
-function onS(){const h=document.documentElement,y=scrollY;$('#prog').style.transform=`scaleX(${y/(h.scrollHeight-innerHeight||1)})`;$('#top').classList.toggle('s',y>700);
-tls.forEach(t=>{const r=t.getBoundingClientRect();t.style.setProperty('--p',Math.max(0,Math.min(1,(innerHeight*.7-r.top)/r.height)))})}
-addEventListener('scroll',onS,{passive:true});onS();$('#top').onclick=()=>scrollTo({top:0});
-// reveal, count-up, active nav
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('v');io.unobserve(e.target)}),{threshold:.12});
-$$('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
-function count(el){const n=+el.dataset.n,d=+(el.dataset.d||0),s=el.dataset.s||'';if(RM){el.textContent=n.toFixed(d)+s;return}
-const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-p,3);el.textContent=(n*e).toFixed(d)+(p==1?s:'');p<1&&requestAnimationFrame(f)})(t0)}
-const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){count(e.target);co.unobserve(e.target)}}),{threshold:.6});$$('[data-n]').forEach(el=>co.observe(el));
-const secs=$$('main section,#home'),no=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('#links a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});secs.forEach(s=>no.observe(s));
-// card spotlight, magnetic buttons, portrait tilt
+function onS(){const h=document.documentElement,y=scrollY;$('#prog').style.transform=`scaleX(${Math.min(1,y/(h.scrollHeight-innerHeight||1))})`;$('#top').classList.toggle('s',y>600);
+tls.forEach(t=>{if(!t.offsetParent)return;const r=t.getBoundingClientRect();t.style.setProperty('--p',Math.max(0,Math.min(1,(innerHeight*.7-r.top)/r.height)))})}
+addEventListener('scroll',onS,{passive:true});addEventListener('resize',onS);$('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('v');io.unobserve(e.target)}),{threshold:.1});
+$$('.rv:not(.v)').forEach((el,i)=>{el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
 document.addEventListener('pointermove',e=>{const c=e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}
-if(RM)return;$$('.mag').forEach(b=>{const r=b.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);b.style.transform=Math.hypot(dx,dy)<90?`translate(${dx*.22}px,${dy*.3}px)`:''})});
-// marquee
-const sk=['PCR','qPCR','RT-qPCR','ELISA','MALDI-TOF','R','SPSS','ArcGIS','KoboToolBox','EndNote','BioRender','Meat proximate analysis','Antimicrobial susceptibility','Cell culture','Spatial epidemiology'];
-$('#mq').innerHTML=[...sk,...sk].map(s=>`<span>${s}</span>`).join('');
+if(RM)return;$$('.mag').forEach(b=>{if(!b.offsetParent)return;const r=b.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);b.style.transform=Math.hypot(dx,dy)<90?`translate(${dx*.18}px,${dy*.25}px)`:''})});
 // lightbox
-document.addEventListener('click',e=>{const i=e.target.closest('.gal img');if(i){$('#lb img').src=i.src;$('#lb').classList.add('o')}});$('#lb').onclick=()=>$('#lb').classList.remove('o');addEventListener('keydown',e=>e.key=='Escape'&&$('#lb').classList.remove('o'));
-// publications
+document.addEventListener('click',e=>{const i=e.target.closest('.gal img');if(i){$('#lb img').src=i.src;$('#lb').classList.add('o')}});$('#lb').onclick=()=>$('#lb').classList.remove('o');addEventListener('keydown',e=>{if(e.key=='Escape'){$('#lb').classList.remove('o');closeMenu()}});
+
+// ---- publications ----
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const cite=c=>esc(c).replace(/\s*(?:DOI:\s*)?(?:https?:\/\/(?:doi\.org\/)+)?10\.\d{4,9}\/\S+/g,'').replace(/(Bhuiyan,? ?M\. ?I\. ?H\.?|Hossain Bhuiyan, M\. I\.?)/g,'<b>$1</b>');
-let flt='all',exp=true;const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let flt='all',exp=true;
 function render(){const q=$('#q').value.toLowerCase().trim();
 let d=flt=='review'?reviews.map(x=>({title:x.split(/\(2026\),?/).pop().trim().replace(/^,\s*/,'')||x,citation:x,year:'Under review',url:''})):pubs.filter(p=>flt=='all'||(flt=='other'?!['2025','2026'].includes(p.year):p.year==flt));
 d=d.filter(p=>(p.title+p.citation).toLowerCase().includes(q));const v=exp?d:d.slice(0,6);
-$('#list').innerHTML=v.map((p,i)=>`<article class="card pub" style="--k:${i}"><div class="pt"><b>${esc(p.year)}</b><span>${flt=='review'?'Manuscript':esc(p.kind||'')}</span></div><h3>${p.url?`<a class="tt" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`:esc(p.title)}</h3>${flt=='review'?'':`<p>${cite(p.citation)}</p>`}${p.url?`<a href="${esc(p.url)}" target="_blank" rel="noopener">DOI: ${esc(p.url.replace('https://doi.org/',''))} ↗</a>`:''}</article>`).join('')||'<p>No matching records.</p>';
+$('#list').innerHTML=v.map((p,i)=>`<article class="card pub" style="--k:${i}"><div class="pt"><b>${esc(p.year)}</b><span>${flt=='review'?'Manuscript':esc(p.kind||'')}</span></div><h3>${p.url?`<a class="tt" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`:esc(p.title)}</h3>${flt=='review'?'':`<p>${cite(p.citation)}</p>`}${p.url?`<a class="doi" href="${esc(p.url)}" target="_blank" rel="noopener">DOI: ${esc(p.url.replace('https://doi.org/',''))} ↗</a>`:''}</article>`).join('')||'<p>No matching records.</p>';
 $('#more').style.display=d.length>6?'inline-block':'none';$('#more').textContent=exp?'Show fewer ↑':`Show all ${d.length} ↓`}
 $$('.f[data-f]').forEach(b=>b.onclick=()=>{$$('.f[data-f]').forEach(x=>x.classList.remove('on'));b.classList.add('on');flt=b.dataset.f;exp=true;render()});
 $('#q').oninput=()=>{exp=true;render()};$('#more').onclick=()=>{exp=!exp;render()};render();
-// cluster-map hero
-(function(){const cv=$('#sim'),x=cv.getContext('2d');let W,H,dpr=Math.min(devicePixelRatio||1,2),P={x:-999,y:-999,a:0,g:0},t=0,S=21;
+
+// ---- hero hex-map (runs only while Home is visible) ----
+const hero=$('#p-home');
+const heroSim=(function(){const cv=$('#sim'),x=cv.getContext('2d');let W,H,dpr=Math.min(devicePixelRatio||1,2),P={x:-999,y:-999,a:0,g:0},t=0,S=21,running=false;
 const C=['#2f6fb5','#5aa469','#2b3349','#e08a2d','#8b5cf6'];
-function init(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+function init(){W=cv.clientWidth;H=cv.clientHeight;if(!W)return;cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
 const val=(i,j)=>(Math.sin(i*.31+t*.6)+Math.sin(j*.37-t*.45)+Math.sin((i+j)*.18+t*.3)+Math.sin(Math.hypot(i-24,j-7)*.35-t*.8)+4)/8;
 function hex(px,py,r){x.beginPath();for(let k=0;k<6;k++){const a=Math.PI/3*k+Math.PI/6;x.lineTo(px+r*Math.cos(a),py+r*Math.sin(a))}x.closePath()}
-function draw(){x.clearRect(0,0,W,H);const w=S*Math.sqrt(3),h=S*1.5;P.g+=(P.a-P.g)*.08;let r=0;
+function draw(){if(hero.hidden){running=false;return}x.clearRect(0,0,W,H);const w=S*Math.sqrt(3),h=S*1.5;P.g+=(P.a-P.g)*.08;let r=0;
 for(let y=0;y<H+S;y+=h,r++){let c=0;for(let px=(r%2?w/2:0);px<W+w;px+=w,c++){let v=val(c,r);const d=Math.hypot(px-P.x,y-P.y);if(d<170)v=Math.min(1,v+(1-d/170)*.75*P.g);
 const k=v>.74?4:v>.6?3:v>.42?2:v>.3?1:0;x.globalAlpha=k==2?.3:.14+v*.3;x.fillStyle=C[k];hex(px,y,S-2.5);x.fill()}}
-x.globalAlpha=1;t+=.012;if(!RM)requestAnimationFrame(draw)}
-init();addEventListener('resize',()=>{init();RM&&draw()});const hb=$('#home');
-hb.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();P.x=e.clientX-r.left;P.y=e.clientY-r.top;P.a=1});hb.addEventListener('pointerleave',()=>P.a=0);
-draw()})();
+x.globalAlpha=1;t+=.012;if(!RM)requestAnimationFrame(draw);else running=false}
+hero.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();P.x=e.clientX-r.left;P.y=e.clientY-r.top;P.a=1});hero.addEventListener('pointerleave',()=>P.a=0);
+new ResizeObserver(()=>{if(!hero.hidden){init();if(RM)draw()}}).observe(hero);
+return{start(){init();if(!running){running=true;draw()}}}})();
 
+// ---- page routing: one page visible at a time ----
+const KEYS=['home','research','publications','education','experience','skills','presentations','awards','gallery','contact'],ALIAS={scholarly:'publications','more-info':'education',collab:'contact'};
+const routeKey=()=>{let h=location.hash.replace(/^#\/?/,'');h=ALIAS[h]||h;return KEYS.includes(h)?h:'home'};
+const menu=$('#menu'),links=$('#links');
+function closeMenu(){links.classList.remove('o');menu.setAttribute('aria-expanded','false')}
+menu.onclick=()=>{const o=links.classList.toggle('o');menu.setAttribute('aria-expanded',o)};
+document.addEventListener('click',e=>{if(!e.target.closest('.tni'))closeMenu()});
+$$('#links a,.brand').forEach(a=>a.addEventListener('click',e=>{const k=(a.dataset.k||'home');if(routeKey()===k){e.preventDefault();scrollTo(0,0)}closeMenu()}));
+history.scrollRestoration='manual';
+function show(first){const k=routeKey();
+$$('.page').forEach(p=>p.hidden=p.id!=='p-'+k);
+$$('#links a').forEach(a=>{const on=a.dataset.k===k;a.classList.toggle('on',on);on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
+const pg=$('#p-'+k);document.title=k=='home'?pg.dataset.title:`${pg.dataset.title} — Md. Ismile Hossain Bhuiyan`;
+closeMenu();scrollTo(0,0);
+if(!first){const h=pg.querySelector('h1');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}
+if(k=='home')heroSim.start();onS()}
+addEventListener('hashchange',()=>show());show(true);
 </script></body></html>
